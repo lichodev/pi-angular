@@ -1,0 +1,47 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--pi-nav-height);
+    z-index: 9999;
+    background-image: url(../../../assets/background-nav.png);
+}
+ul {
+    display: flex;
+    position: fixed;
+    right: 0.5rem;
+    top: 0;
+    margin: 0;
+}
+
+.nav-item {
+   
+    padding: 1rem 1rem 0;
+    height: 35px;
+    color: var(--pi-white);
+    font-weight: bold;
+}
+.nav-item:hover {
+    background-color: var(--pi-aqua);
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--pi-dark-aqua);
+}
+.select {
+    background-color: var(--pi-green);    
+    border-radius: 5px;
+}
+.option {
+    height: 3vh;
+    text-align: center;
+    padding: 0.5em 0.5em 0 0.5em;
+    border-radius: 5px;
+}
+.option:hover {
+    background-color: var(--pi-aqua);
+}
+
+

@@ -1,0 +1,19 @@
+<nav>
+    <img src="" alt="">
+    <ul>
+       <div class="nav-item" [class]="getSelected() == 'INICIO' ? 'selected' : 'nav-item'" [routerLink]="['/']" (click)="hideOptions()">INICIO</div>
+       <div class="nav-item" [class]="getSelected() == 'INFO' ? 'selected' : 'nav-item'" (click)="toggleShowOptions()">
+        INFORMACIÓN
+           <div [class]="showOptions ? 'select' : 'hide'">
+               <div class="option" [routerLink]="['tips']">TIPS</div>
+               <div class="option">TARJETAS</div>
+               <div class="option" [routerLink]="['talleres']">TALLERES</div>
+               <div class="option" [routerLink]="['experiencias']">EXPERIENCIAS</div>
+               <div class="option" [routerLink]="['capacitaciones']">CAPACITACIONES</div>
+           </div>
+        </div>
+       <div class="nav-item" [class]="getSelected() == 'CONSULTAS' ? 'selected' : 'nav-item'" [routerLink]="['consultas']" (click)="hideOptions()">CONSULTAS</div>
+       <div class="nav-item" [class]="getSelected() == 'QUIERO SER PARTE' ? 'selected' : 'nav-item'" [routerLink]="['sumarme']" (click)="hideOptions()">QUIERO SER PARTE</div>
+       <div class="nav-item" [class]="getSelected() == 'INICIAR SESIÓN' ? 'selected' : 'nav-item'" [routerLink]="['iniciar-sesion']" (click)="hideOptions()">INICIAR SESIÓN</div>
+    </ul>
+</nav>
