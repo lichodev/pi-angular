@@ -1,0 +1,6 @@
+<div *ngIf="thereIsUserLoged; else user">
+    <app-experience-admin></app-experience-admin>
+</div>
+<ng-template #user>
+    <app-experience-user></app-experience-user>
+</ng-template>

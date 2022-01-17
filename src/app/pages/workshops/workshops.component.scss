@@ -1,0 +1,10 @@
+.content {
+    display: flex;
+    width: 100%;
+}
+mat-card {
+
+    border: solid 1px var(--pi-dark-aqua);
+    margin: 1%;
+    flex-grow: 1;
+}

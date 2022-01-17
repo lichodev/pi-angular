@@ -1,0 +1,13 @@
+mat-grid-list {
+    text-align: center;
+    background-color: var(--pi-light-aqua);
+}
+img {
+    width: 30%;
+    margin: 1%;
+}
+img:hover {
+    width: 32%;
+    margin: 0;
+    cursor: pointer;
+}

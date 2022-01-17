@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="column">
+        <img src="" alt="">
+        <mat-card class="inqiry">
+            <h1>Contanos tu experiencia</h1>
+            <form [formGroup]="experienceForm" action="">
+                <textarea formControlName="text" name="" id="" cols="30" rows="10"></textarea>
+                <input type="file" formControlName="image">
+                <button class="send" mat-raised-button>Enviar</button>
+            </form>
+        </mat-card>
+    </div>
+    <div class="list">
+        <mat-card *ngFor="let e of experiences">
+            <p>{{e.text}}</p>
+            <img src="{{e.image}}" alt="">
+        </mat-card>
+    </div>
+</div>

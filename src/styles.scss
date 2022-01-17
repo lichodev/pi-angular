@@ -75,3 +75,46 @@ color: var(--pi-black);}
 .hide {
     display: none;
 }
+
+mat-card {
+    margin: 1%;
+}
+.btn {
+    height: 4vh;
+    border-radius: 5px;
+    margin-top: 2%;
+    color: var(--pi-white);
+    
+}
+
+.send {
+    background-color: var(--pi-green);
+    width: 95%;
+}
+.send:hover {
+    background-color: var(--pi-light-green);
+    color: var(--pi-black);
+}
+.cancel {
+    background-color: var(--pi-pink);
+}
+.cancel:hover {
+    background-color: var(--pi-light-pink);
+    color: var(--pi-black);
+}
+.form-header {
+    background-color: var(--pi-green);
+    color: var(--pi-white);
+    text-align: center;
+    border-radius: var(--pi-border-radius);
+    width: 95%;
+}
+
+.form-header h1 {
+    margin: 0 0 1% 0;
+}
+
+input {
+    height: 3vh;
+    margin-bottom: 5%;
+}

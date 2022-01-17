@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Workshop } from 'src/app/models/workshop';
 import { PiTabService } from 'src/app/services/pi-tab.service';
+import { WorkshopService } from 'src/app/services/workshop.service';
 
 @Component({
   selector: 'app-workshops',
@@ -8,10 +10,14 @@ import { PiTabService } from 'src/app/services/pi-tab.service';
 })
 export class WorkshopsComponent implements OnInit {
 
-  constructor(private tabSvc: PiTabService) { }
+    workshops: Workshop[] = [];
+
+  constructor(private tabSvc: PiTabService,
+    private workshopSvc: WorkshopService) { }
 
   ngOnInit(): void {
     this.tabSvc.setSelected("INFO");    
+    this.workshops = this.workshopSvc.getWorkshops();
   }
 
 }

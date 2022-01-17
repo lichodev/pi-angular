@@ -1,0 +1,25 @@
+.content {
+    display: flex;
+    
+    background-color: var(--pi-light-purple);
+}
+
+//ENCUESTA FORMULARIO
+.column {
+    flex-basis: 30vw;
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 2%;
+}
+h1 {
+    color: var(--pi-purple);
+}
+textarea {
+    width: 95%;
+}
+//LISTADO
+.list {
+    flex-basis: 70vw;
+    flex-grow: 1;
+    margin: 2% 2% 0 0;
+}

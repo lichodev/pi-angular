@@ -13,6 +13,10 @@ import { TrainingsComponent } from './pages/trainings/trainings.component';
 import { QueriesComponent } from './pages/queries/queries.component';
 import { JoinComponent } from './pages/join/join.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RemindersComponent } from './pages/reminders/reminders.component';
+import { ExperiencesComponent } from './pages/experiences/experiences.component';
+import { ExperienceUserComponent } from './pages/experience-user/experience-user.component';
+import { ExperienceAdminComponent } from './pages/experience-admin/experience-admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { LoginComponent } from './pages/login/login.component';
     TrainingsComponent,
     QueriesComponent,
     JoinComponent,
-    LoginComponent
+    LoginComponent,
+    RemindersComponent,
+    ExperiencesComponent,
+    ExperienceUserComponent,
+    ExperienceAdminComponent
   ],
   imports: [
     BrowserModule,
