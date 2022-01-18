@@ -1,6 +1,6 @@
 .content {
     display: flex;
-    
+    justify-content: center;
     background-color: var(--pi-light-purple);
 }
 
@@ -11,15 +11,22 @@
     text-align: center;
     margin-left: 2%;
 }
-h1 {
-    color: var(--pi-purple);
-}
 textarea {
     width: 95%;
 }
 //LISTADO
 .list {
     flex-basis: 70vw;
-    flex-grow: 1;
-    margin: 2% 2% 0 0;
+    margin: 2% 0 2% 0;
+}
+
+.btn {
+    width: 45%;
+    margin-bottom: 5%;
+}
+.cancel {
+    margin-right: 5.5%;
+}
+input {
+    margin-bottom: 0;
 }

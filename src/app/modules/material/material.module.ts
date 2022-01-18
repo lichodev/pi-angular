@@ -5,6 +5,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatDividerModule,
   ],
   exports: [
     MatCardModule,
@@ -24,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatDividerModule,
   ]
 })
 export class MaterialModule { }

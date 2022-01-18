@@ -1,6 +1,7 @@
 .content {
     display: flex;
     background-color: var(--pi-light-dark-aqua);
+    justify-content: center;
 }
 
 .column {
@@ -9,15 +10,18 @@
     text-align: center;
     margin-left: 2%;
 }
-
+ul {
+    display: flex;
+    justify-content: space-around;
+}
 li {
     list-style: none;
+    color: var(--pi-light-black);
 }
 
 .form {
     flex-basis: 70vw;
-    flex-grow: 1;
-    margin: 2% 2% 0 0;
+    margin: 2% 0 2% 0;
 }
 mat-card {
     text-align: -webkit-center;
@@ -38,4 +42,8 @@ textarea {
 }
 .cancel {
     margin-right: 5.5%;
+}
+
+label {
+    font-size: 1.3em;
 }

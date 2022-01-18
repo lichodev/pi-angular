@@ -1,1 +1,36 @@
-<p>join works!</p>
+<div class="content">
+   <!-- <div class="column">
+        <mat-card>
+            <h1>Si querés colaborar con el proyecto, dejanos tus datos y nos ponemos en contacto</h1>
+        </mat-card>
+    </div>-->
+    <div class="form">
+        <mat-card>
+            <div class="form-header">
+                <h1>Si querés colaborar, dejanos tus datos y nos ponemos en contacto</h1>
+            </div>
+            <form [formGroup]="requestForm">
+                <div class="inputs">
+                    <div class="fullname input-group">
+                        <label for="name">Nombre</label>
+                        <input formControlName="name" type="text" id="name">
+                        <label for="lastname">Apellido</label>
+                        <input formControlName="lastname" type="text" id="lastname">
+                    </div>
+                    <div class="contact input-group">
+                        <label for="email">Correo electrónico</label>
+                        <input formControlName="email" type="text" id="email">
+                        <label for="phone">Teléfono</label>
+                        <input formControlName="phone" type="text" id="phone">
+                    </div>
+                </div>
+                <label for="why">Contanos por qué te gustaría formar parte:</label>
+                <textarea formControlName="why" name="" id="why" cols="30" rows="10"></textarea>
+                <label for="how">Contanos cómo pensás que podrías colaborar:</label>
+                <textarea formControlName="how" name="" id="how" cols="30" rows="10"></textarea>
+                <button class="btn cancel" mat-raised-button>Cancelar</button>
+                <button class="btn send" mat-raised-button>Enviar</button>
+            </form>
+        </mat-card>
+    </div>
+</div>
