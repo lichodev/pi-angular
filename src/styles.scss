@@ -61,6 +61,7 @@ $primeraInfancia-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 color: var(--pi-black);}
+
 ::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -71,6 +72,14 @@ color: var(--pi-black);}
 ::-webkit-scrollbar-thumb {
     background-color: var(--pi-dark-aqua);
     border-radius: 40px;
+}
+
+.content {
+    background-color: white;
+    background-image: url('./assets/backgrounds/0a6.jpeg');
+    background-position-x: right;
+    background-size: auto;
+    background-repeat-x: no-repeat;
 }
 .hide {
     display: none;
