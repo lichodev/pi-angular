@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
         "../../../assets/headers/purple-header.jpg",
         "../../../assets/headers/green-header.jpg"
     ];
-    currentImg: string = "";
+    currentImg: string = this.urlImages[this.urlImages.length-1];
     timer: any;
 
   constructor(private tabSvc: PiTabService) { }

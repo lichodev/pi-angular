@@ -78,6 +78,7 @@ color: var(--pi-black);}
 
 mat-card {
     margin: 1%;
+    text-align: center;
 }
 .btn {
     height: 4vh;
@@ -108,6 +109,7 @@ mat-card {
     text-align: center;
     border-radius: var(--pi-border-radius);
     width: 95%;
+    margin-left: 2.5%;
 }
 
 .form-header h1 {
@@ -117,4 +119,7 @@ mat-card {
 input {
     height: 3vh;
     margin-bottom: 5%;
+}
+label {
+    font-size: 1.3em;
 }
