@@ -3,9 +3,10 @@ img {
 }
 .content {
     background-color: var(--pi-light-pink);
-    position: absolute;
+    position: relative;
+    padding: 1% 0 1% 0;
     width: 100%;
-    height: inherit;
+    height: auto;
     margin: -4px;
 }
 .description {

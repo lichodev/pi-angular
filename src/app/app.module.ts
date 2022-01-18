@@ -17,6 +17,7 @@ import { RemindersComponent } from './pages/reminders/reminders.component';
 import { ExperiencesComponent } from './pages/experiences/experiences.component';
 import { ExperienceUserComponent } from './pages/experience-user/experience-user.component';
 import { ExperienceAdminComponent } from './pages/experience-admin/experience-admin.component';
+import { PiFooterComponent } from './common/pi-footer/pi-footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ExperienceAdminComponent } from './pages/experience-admin/experience-ad
     RemindersComponent,
     ExperiencesComponent,
     ExperienceUserComponent,
-    ExperienceAdminComponent
+    ExperienceAdminComponent,
+    PiFooterComponent
   ],
   imports: [
     BrowserModule,
