@@ -68,7 +68,21 @@ export class ExperienceService {
         //dependiendo de si el usuario está logeado o no
     }
 
-    postExperience(e: Experience) {
-        this.experience = e; //post
+    setExperience(e: Experience) {
+        this.experience = e;
+    }
+
+    clear() {
+        this.experience = {
+            id: null,
+            text: "",
+            image: null,
+            status: null,
+            enabler: null,
+        }
+    }
+
+    post() {
+        console.log("post")//post
     }
 }

@@ -7,8 +7,8 @@
             <form [formGroup]="experienceForm" action="">
                 <textarea formControlName="text" name="" id="" cols="30" rows="10"></textarea>
                 <input type="file" formControlName="image"><br>
-                <button class="btn cancel" mat-raised-button>Cancelar</button>
-                <button class=" btn send" mat-raised-button>Enviar</button>
+                <button class="btn cancel" mat-raised-button (click)="openConfirmPopUp('cancelar el envio de')">Cancelar</button>
+                <button class=" btn send" mat-raised-button (click)="send()">Enviar</button>
             </form>
             <div class="form-header">
                 <h1>Experiencias</h1>

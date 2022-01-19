@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatDividerModule,
+    MatDialogModule,
   ],
   exports: [
     MatCardModule,
@@ -27,6 +29,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatDividerModule,
+    MatDialogModule,
   ]
 })
 export class MaterialModule { }

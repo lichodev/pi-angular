@@ -18,6 +18,8 @@ import { ExperiencesComponent } from './pages/experiences/experiences.component'
 import { ExperienceUserComponent } from './pages/experience-user/experience-user.component';
 import { ExperienceAdminComponent } from './pages/experience-admin/experience-admin.component';
 import { PiFooterComponent } from './common/pi-footer/pi-footer.component';
+import { PodcastsComponent } from './pages/podcasts/podcasts.component';
+import { ConfirmPopUpComponent } from './common/confirm-pop-up/confirm-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { PiFooterComponent } from './common/pi-footer/pi-footer.component';
     ExperiencesComponent,
     ExperienceUserComponent,
     ExperienceAdminComponent,
-    PiFooterComponent
+    PiFooterComponent,
+    PodcastsComponent,
+    ConfirmPopUpComponent
   ],
   imports: [
     BrowserModule,

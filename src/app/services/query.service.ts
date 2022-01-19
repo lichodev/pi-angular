@@ -10,7 +10,21 @@ export class QueryService {
 
     constructor() { }
 
-    postQuery(q: Query) {
-        this.query = q; //POST  
+    setQuery(q: Query) {
+        this.query = q;
+    }
+
+    clear() {
+        this.query = {
+            name: "",
+            lastname: "",
+            email: "",
+            phone: "",
+            text: "",
+        }
+    }
+
+    post() {
+        console.log("post")//post
     }
 }

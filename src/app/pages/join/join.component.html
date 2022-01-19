@@ -23,8 +23,8 @@
                 <textarea formControlName="why" name="" id="why" cols="30" rows="10"></textarea>
                 <label for="how">Contanos cómo pensás que podrías colaborar:</label>
                 <textarea formControlName="how" name="" id="how" cols="30" rows="10"></textarea>
-                <button class="btn cancel" mat-raised-button>Cancelar</button>
-                <button class="btn send" mat-raised-button>Enviar</button>
+                <button class="btn cancel" mat-raised-button (click)="openConfirmPopUp('cancelar el envio de')">Cancelar</button>
+                <button class="btn send" mat-raised-button (click)="send()">Enviar</button>
             </form>
         </mat-card>
     </div>

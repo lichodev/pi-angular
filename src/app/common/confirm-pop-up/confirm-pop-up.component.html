@@ -1,0 +1,7 @@
+<div class="question">
+    <h2 mat-dialog-title>Desea {{action}} esta {{object}}?</h2>
+</div>
+<div class="buttons">
+    <button class="btn cancel" mat-raised-button (click)="cancel()" [mat-dialog-close]="true">Cancelar</button>
+    <button class=" btn send" mat-raised-button (click)="post()" [mat-dialog-close]="true">{{textSendButton}}</button>
+</div>
