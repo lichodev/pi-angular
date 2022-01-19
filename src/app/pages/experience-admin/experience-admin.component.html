@@ -20,8 +20,8 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
             <td mat-cell *matCellDef="let element"> 
-                <img src="../../../assets/actions/no.svg" class="icon" alt="">    
-                <img src="../../../assets/actions/yes.svg" class="icon" alt="">    
+                <img src="../../../assets/actions/no.svg" (click)="reject(element.id)" class="icon" alt="">    
+                <img src="../../../assets/actions/yes.svg" (click)="agree(element.id)" class="icon" alt="">    
             </td>
 
         </ng-container>

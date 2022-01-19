@@ -14,18 +14,21 @@ export class ConfirmPopUpComponent implements OnInit {
     object!: string;
     send!: boolean;
     textSendButton!: string;
+    admin!: boolean;
     service: any;
     timer: any;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    private router: Router) {
+        private router: Router) {
         this.action = data.action;
         this.object = data.object;
         this.send = data.send;
+        this.admin = data.admin;
         this.service = data.service;
         if (this.send) this.textSendButton = "Enviar";
+        else if (this.admin) this.textSendButton = "Sí";
         else this.textSendButton = "Seguir editando";
-     }
+    }
 
     ngOnInit(): void {
     }
@@ -34,11 +37,13 @@ export class ConfirmPopUpComponent implements OnInit {
         if (this.send) {
             this.service.post();
             location.reload();
+        } else if (this.admin) {
+            this.service.confirm();
         }
     }
 
     cancel(): void {
-        if (!this.send) {
+        if (!this.send && !this.admin) {
             this.service.clear();
             location.reload();
         }

@@ -8,7 +8,7 @@ import { PiTabService } from 'src/app/services/pi-tab.service';
 })
 export class ExperiencesComponent implements OnInit {
 
-    thereIsUserLoged: boolean = false;
+    thereIsUserLoged: boolean = true;
 
   constructor(private tabSvc: PiTabService) { }
 

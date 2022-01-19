@@ -58,7 +58,13 @@ const EXPERIENCES: Experience[] = [
 })
 export class ExperienceService {
 
-    experience!: Experience;
+    experience: Experience = {
+        id: null,
+        text: "",
+        image: null,
+        status: null,
+        enabler: null,
+    }
 
     constructor() { }
 
@@ -72,6 +78,16 @@ export class ExperienceService {
         this.experience = e;
     }
 
+    reject(id: number) {
+        this.experience.id = id;
+        this.experience.status = 0;
+    }
+
+    agree(id: number) {
+        this.experience.id = id;
+        this.experience.status = 1;
+    }
+
     clear() {
         this.experience = {
             id: null,
@@ -82,7 +98,23 @@ export class ExperienceService {
         }
     }
 
+    confirm() {
+        if (this.experience.status == 1) {
+            this.put();
+        } else {
+            this.delete();
+        }
+    }
+
     post() {
         console.log("post")//post
+    }
+
+    delete(): void {
+        console.log("delete")
+    }
+
+    put(): void {
+        console.log("put")
     }
 }
