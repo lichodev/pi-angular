@@ -1,0 +1,25 @@
+.download {
+    background-color: var(--pi-yellow);
+    color: var(--pi-black);
+}
+.download:hover {
+    background-color: var(--pi-light-yellow);
+    cursor: pointer;
+}
+.btn {
+    width: 45%;
+}
+.icon {
+    float: right;
+    width: 30px;
+}
+.icon:hover {
+    filter: contrast(0.5);
+    cursor: pointer;
+}
+.image {
+    text-align: center;
+}
+.image img {
+    width: 95%;
+}

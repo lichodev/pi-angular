@@ -20,6 +20,8 @@ import { ExperienceAdminComponent } from './pages/experience-admin/experience-ad
 import { PiFooterComponent } from './common/pi-footer/pi-footer.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { ConfirmPopUpComponent } from './common/confirm-pop-up/confirm-pop-up.component';
+import { ImagePopUpComponent } from './common/image-pop-up/image-pop-up.component';
+import { PollComponent } from './common/poll/poll.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ConfirmPopUpComponent } from './common/confirm-pop-up/confirm-pop-up.co
     ExperienceAdminComponent,
     PiFooterComponent,
     PodcastsComponent,
-    ConfirmPopUpComponent
+    ConfirmPopUpComponent,
+    ImagePopUpComponent,
+    PollComponent
   ],
   imports: [
     BrowserModule,

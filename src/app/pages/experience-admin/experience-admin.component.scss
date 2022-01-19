@@ -1,13 +1,12 @@
 .content {
     text-align: -webkit-center;
    // background-color: var(--pi-light-yellow);
-    padding-top: 3%;
+    padding: 3% 0 3% 0;
 }
 table.mat-table {
     width: 90%;
     text-align: center;
     border-radius: var(--pi-border-radius)!important;
-    margin-bottom: 4%;
 }
 th.mat-header-cell {
     text-align: center;
