@@ -22,6 +22,11 @@ import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { ConfirmPopUpComponent } from './common/confirm-pop-up/confirm-pop-up.component';
 import { ImagePopUpComponent } from './common/image-pop-up/image-pop-up.component';
 import { PollComponent } from './common/poll/poll.component';
+import { QueriesUserComponent } from './pages/queries-user/queries-user.component';
+import { QueriesAdminComponent } from './pages/queries-admin/queries-admin.component';
+import { JoinUserComponent } from './pages/join-user/join-user.component';
+import { JoinAdminComponent } from './pages/join-admin/join-admin.component';
+import { FastNoteComponent } from './common/fast-note/fast-note.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { PollComponent } from './common/poll/poll.component';
     PodcastsComponent,
     ConfirmPopUpComponent,
     ImagePopUpComponent,
-    PollComponent
+    PollComponent,
+    QueriesUserComponent,
+    QueriesAdminComponent,
+    JoinUserComponent,
+    JoinAdminComponent,
+    FastNoteComponent
   ],
   imports: [
     BrowserModule,

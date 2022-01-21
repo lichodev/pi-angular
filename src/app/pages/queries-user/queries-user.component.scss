@@ -1,0 +1,43 @@
+.content {
+    display: flex;
+    //background-color: var(--pi-light-dark-aqua);
+    justify-content: center;
+}
+
+.column {
+    flex-basis: 30vw;
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 2%;
+}
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+li {
+    list-style: none;
+    color: var(--pi-light-black);
+}
+
+.form {
+    flex-basis: 70vw;
+    margin: 2% 0 2% 0;
+}
+textarea {
+    width: 95%;
+}
+.inputs {
+    display: flex;
+    justify-content: space-around;
+}
+.input-group {
+    display: inline-grid;
+}
+
+.btn {
+    width: 45%;
+}
+.cancel {
+    margin-right: 5.5%;
+}
+

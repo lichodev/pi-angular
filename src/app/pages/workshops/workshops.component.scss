@@ -1,6 +1,11 @@
 .content {
+    text-align: -webkit-center;
+}
+.workshops {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    width: 70%;
+
 }
 mat-card {
 

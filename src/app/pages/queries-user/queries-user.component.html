@@ -1,0 +1,38 @@
+<div class="content">
+    <div class="form">
+        <mat-card>
+            <div class="form-header">
+                <h1>Números importantes</h1>
+            </div>
+            <ul>
+                <li *ngFor="let caps of contacts">
+                    <h2>{{caps.name}}</h2>
+                    <p>{{caps.phone}}</p>
+                </li>
+            </ul>
+            <div class="form-header">
+                <h1>Dejanos tu consulta</h1>
+            </div>
+            <form [formGroup]="queryForm">
+                <div class="inputs">
+                    <div class="fullname input-group">
+                        <label for="name">Nombre</label>
+                        <input formControlName="name" type="text" id="name">
+                        <label for="lastname">Apellido</label>
+                        <input formControlName="lastname" type="text" id="lastname">
+                    </div>
+                    <div class="contact input-group">
+                        <label for="email">Correo electrónico</label>
+                        <input formControlName="email" type="text" id="email">
+                        <label for="phone">Teléfono</label>
+                        <input formControlName="phone" type="text" id="phone">
+                    </div>
+                </div>
+                <label for="text">Escribí tu consulta:</label>
+                <textarea formControlName="text" name="" id="text" cols="30" rows="10"></textarea>
+                <button class="btn cancel" mat-raised-button (click)="openConfirmPopUp('cancelar')">Cancelar</button>
+                <button class="btn send" mat-raised-button (click)="send()">Enviar</button>
+            </form>
+        </mat-card>
+    </div>
+</div>
