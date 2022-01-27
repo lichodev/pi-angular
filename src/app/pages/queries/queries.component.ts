@@ -32,7 +32,7 @@ const CONTACTS: Contact[] = [
 })
 export class QueriesComponent implements OnInit {
 
-    thereIsUserLoged: boolean = true;
+    thereIsUserLoged: boolean = false;
 
     constructor(private tabSvc: PiTabService,) { }
 
