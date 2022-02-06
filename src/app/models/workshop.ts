@@ -2,6 +2,6 @@ export interface Workshop {
     id: number;
     title: string;
     description: string;
-    image: string;
-    videos: string[];
+    video: string;
+    video2: string;
 }

@@ -1,8 +1,8 @@
 <div class="content">
     <div class="workshops">
         <mat-card *ngFor="let ws of workshops">
-            <img mat-card-image src="" alt="">
-            <mat-card-title>{{ws.title}}</mat-card-title>
+            <mat-card-title>{{ws.title}} - {{ws.description}}</mat-card-title>
+            <video src="{{ws.video}}" controls></video>
         </mat-card>
     </div>
 </div>

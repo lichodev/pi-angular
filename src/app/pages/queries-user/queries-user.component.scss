@@ -32,6 +32,7 @@ textarea {
 }
 .input-group {
     display: inline-grid;
+    text-align: end;
 }
 
 .btn {
@@ -40,4 +41,6 @@ textarea {
 .cancel {
     margin-right: 5.5%;
 }
-
+label {
+    margin-right: 5px;
+}

@@ -1,0 +1,18 @@
+.content {
+    text-align: -webkit-center;
+}
+.podcasts {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+
+}
+mat-card {
+    border: solid 1px var(--pi-dark-aqua);
+    margin: 1%;
+    flex-grow: 1;
+}
+
+audio {
+    width: 90%;
+}

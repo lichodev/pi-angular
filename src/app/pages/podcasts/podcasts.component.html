@@ -1,1 +1,9 @@
-<p>podcasts works!</p>
+<div class="content">
+    <div class="podcasts">
+        <mat-card *ngFor="let podcast of podcasts">
+            <mat-card-title>{{podcast.title}}</mat-card-title>
+            <audio src="{{podcast.audio}}" type="audio/mp3" controls ></audio>
+            <!--<audio src="../../../assets/PodInfancia1.mp3" type="audio/mp3" controls ></audio>-->
+        </mat-card>
+    </div>
+</div>

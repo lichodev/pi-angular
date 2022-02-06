@@ -16,16 +16,24 @@
             <form [formGroup]="queryForm">
                 <div class="inputs">
                     <div class="fullname input-group">
-                        <label for="name">Nombre</label>
-                        <input formControlName="name" type="text" id="name">
-                        <label for="lastname">Apellido</label>
-                        <input formControlName="lastname" type="text" id="lastname">
+                        <div class="input">
+                            <label for="name">Nombre</label>
+                            <input formControlName="name" type="text" id="name">
+                        </div>
+                        <div class="input">
+                            <label for="lastname">Apellido</label>
+                            <input formControlName="lastname" type="text" id="lastname">
+                        </div>
                     </div>
                     <div class="contact input-group">
-                        <label for="email">Correo electrónico</label>
-                        <input formControlName="email" type="text" id="email">
-                        <label for="phone">Teléfono</label>
-                        <input formControlName="phone" type="text" id="phone">
+                        <div class="input">
+                            <label for="email">Correo electrónico</label>
+                            <input formControlName="email" type="text" id="email">
+                        </div>
+                        <div class="input">
+                            <label for="phone">Teléfono</label>
+                            <input formControlName="phone" type="text" id="phone">
+                        </div>
                     </div>
                 </div>
                 <label for="text">Escribí tu consulta:</label>

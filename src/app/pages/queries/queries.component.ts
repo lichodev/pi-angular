@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/models/contact';
+import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
 
 const CONTACTS: Contact[] = [
@@ -34,11 +35,14 @@ export class QueriesComponent implements OnInit {
 
     thereIsUserLoged: boolean = false;
 
-    constructor(private tabSvc: PiTabService,) { }
+    constructor(private tabSvc: PiTabService,
+        private authSvc: AuthService) { }
 
     ngOnInit(): void {
         this.tabSvc.setSelected("CONSULTAS");
- }
+    }
 
-    
+    isLogged(): boolean {
+        return this.authSvc.getIsLogged();
+    }
 }

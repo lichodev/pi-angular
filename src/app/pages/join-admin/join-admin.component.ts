@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmPopUpComponent } from 'src/app/common/confirm-pop-up/confirm-pop-up.component';
+import { Request } from 'src/app/models/request';
+import { RequestService } from 'src/app/services/request.service';
 
 @Component({
   selector: 'app-join-admin',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoinAdminComponent implements OnInit {
 
-  constructor() { }
+    requests: Request[] = [];
+    displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'why', 'how', 'actions'];
+    dataSource = this.requests;
+
+  constructor(private requestSvc: RequestService,
+    private matDialog: MatDialog) { }
 
   ngOnInit(): void {
+      this.requests = this.requestSvc.getRequests();
+      this.dataSource = this.requests;
   }
+
+  openConfirmPopUp(action: string): void {
+    let object: string = "solicitud";
+    this.matDialog.open(ConfirmPopUpComponent, {
+        data: {
+            action: action,
+            object: object,
+            send: false,
+            admin: true,
+            service: this.requestSvc,
+        }
+    });
+}
+
+agree(id: number) {
+    this.requestSvc.agree(id);
+    this.openConfirmPopUp("marcar como respondida");
+}
 
 }

@@ -5,11 +5,14 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-
+    margin: 2em 0 2em 0;
 }
 mat-card {
 
     border: solid 1px var(--pi-dark-aqua);
     margin: 1%;
     flex-grow: 1;
+}
+video {
+    width: 80%;
 }

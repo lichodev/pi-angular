@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
 
 @Component({
@@ -8,10 +9,16 @@ import { PiTabService } from 'src/app/services/pi-tab.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private tabSvc: PiTabService) { }
+  constructor(private tabSvc: PiTabService,
+    private authSvc: AuthService) { }
 
   ngOnInit(): void {
     this.tabSvc.setSelected("INICIAR SESIÓN");
+  }
+
+  login() {
+      this.authSvc.login();
+      
   }
 
 }

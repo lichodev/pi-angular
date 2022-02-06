@@ -1,1 +1,52 @@
-<p>queries-admin works!</p>
+<div class="content">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+            <td mat-cell class="text" *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- lastname Column -->
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef> APELLIDO </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+        </ng-container>
+
+        <!-- email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> TELÉFONO </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+
+        <!-- question Column -->
+        <ng-container matColumnDef="question">
+            <th mat-header-cell *matHeaderCellDef> CONSULTA </th>
+            <td mat-cell *matCellDef="let element"> {{element.question}} </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> ESTADO </th>
+            <td mat-cell *matCellDef="let element">   
+                <span *ngIf="element.status">RESPONDIDA</span>
+                <span *ngIf="!element.status">SIN RESPONDER</span>
+                <img src="../../../assets/actions/yes.svg" (click)="agree(element.id)" class="icon" alt="">    
+            </td>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>

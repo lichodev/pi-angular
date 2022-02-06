@@ -1,19 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
 
 @Component({
-  selector: 'app-experiences',
-  templateUrl: './experiences.component.html',
-  styleUrls: ['./experiences.component.scss']
+    selector: 'app-experiences',
+    templateUrl: './experiences.component.html',
+    styleUrls: ['./experiences.component.scss']
 })
 export class ExperiencesComponent implements OnInit {
 
-    thereIsUserLoged: boolean = false;
+    thereIsUserLoged: boolean = true;
 
-  constructor(private tabSvc: PiTabService) { }
+    constructor(private tabSvc: PiTabService,
+        private authSvc: AuthService) { }
 
-  ngOnInit(): void {
-      this.tabSvc.setSelected("INFO");
-  }
+    ngOnInit(): void {
+        this.tabSvc.setSelected("INFO");
+    }
+
+    isLogged(): boolean {
+        return this.authSvc.getIsLogged();
+    }
 
 }

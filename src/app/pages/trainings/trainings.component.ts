@@ -8,6 +8,12 @@ import { PiTabService } from 'src/app/services/pi-tab.service';
 })
 export class TrainingsComponent implements OnInit {
 
+    images: string[] = [
+        "../../../assets/trainings/cap1.jpeg",
+        "../../../assets/trainings/cap2.jpeg",
+        "../../../assets/trainings/cap3.jpeg",
+    ];
+
   constructor(private tabSvc: PiTabService) { }
 
   ngOnInit(): void {

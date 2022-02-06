@@ -1,4 +1,4 @@
-<div *ngIf="thereIsUserLoged; else user">
+<div *ngIf="isLogged(); else user">
     <app-experience-admin></app-experience-admin>
 </div>
 <ng-template #user>
