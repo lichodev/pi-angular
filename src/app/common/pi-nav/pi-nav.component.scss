@@ -23,15 +23,15 @@ ul {
     font-weight: bold;
 }
 .nav-item:hover {
-    background-color: var(--pi-aqua);
+    background-color: var(--pi-light-purple);
     cursor: pointer;
 }
 
 .selected {
-    background-color: var(--pi-dark-aqua);
+    background-color: var(--pi-purple);
 }
 .select {
-    background-color: var(--pi-green);    
+    background-color: var(--pi-light-green);    
     border-radius: 5px;
 }
 .option {
@@ -41,7 +41,7 @@ ul {
     border-radius: 5px;
 }
 .option:hover {
-    background-color: var(--pi-aqua);
+    background-color: var(--pi-light-purple);
 }
 
 

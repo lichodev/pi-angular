@@ -27,6 +27,7 @@ import { QueriesAdminComponent } from './pages/queries-admin/queries-admin.compo
 import { JoinUserComponent } from './pages/join-user/join-user.component';
 import { JoinAdminComponent } from './pages/join-admin/join-admin.component';
 import { FastNoteComponent } from './common/fast-note/fast-note.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FastNoteComponent } from './common/fast-note/fast-note.component';
     QueriesAdminComponent,
     JoinUserComponent,
     JoinAdminComponent,
-    FastNoteComponent
+    FastNoteComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

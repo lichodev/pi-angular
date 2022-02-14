@@ -90,31 +90,31 @@ mat-card {
     text-align: center;
 }
 .btn {
-    height: 4vh;
-    border-radius: 5px;
+    height: 10vh;
+    border-radius: 50%;
     margin-top: 2%;
     color: var(--pi-white);
-    
+    font-size: 2vh;
+    width: 10vh;
 }
 
 .send {
-    background-color: var(--pi-green);
-    width: 95%;
+    background-color: var(--pi-light-green);
+    color: var(--pi-purple);
 }
 .send:hover {
-    background-color: var(--pi-light-green);
-    color: var(--pi-black);
+    background-color: var(--pi-green);
 }
 .cancel {
     background-color: var(--pi-purple);
+    color: var(--pi-light-green);
 }
 .cancel:hover {
     background-color: var(--pi-light-purple);
-    color: var(--pi-black);
 }
 .form-header {
-    background-color: var(--pi-green);
-    color: var(--pi-white);
+    background-color: var(--pi-light-green);
+    color: var(--pi-purple);
     text-align: center;
     border-radius: var(--pi-border-radius);
     width: 95%;

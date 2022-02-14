@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExperiencesComponent } from './pages/experiences/experiences.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 import { HomeComponent } from './pages/home/home.component';
 import { JoinComponent } from './pages/join/join.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -42,8 +43,8 @@ const routes: Routes = [
         component: ExperiencesComponent,
     },
     {
-        path: 'capacitaciones',
-        component: TrainingsComponent,
+        path: 'galeria',
+        component: GalleryComponent,
     },
     {
         path: 'consultas',

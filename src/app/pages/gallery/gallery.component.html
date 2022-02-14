@@ -1,0 +1,8 @@
+<div class="flex">
+    <div *ngFor="let pic of gallery" class="card-primera-infancia" (click)="openSingleShow(pic)">
+        <div class="img">
+            <img src="{{pic}}" alt="">
+        </div>
+        <h2>Descripción imagen</h2>
+    </div>
+</div>
