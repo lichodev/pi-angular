@@ -31,6 +31,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { TipComponent } from './pages/tip/tip.component';
 import { AddIconComponent } from './common/add-icon/add-icon.component';
 import { TipFormComponent } from './common/tip-form/tip-form.component';
+import { PodcastFormComponent } from './common/podcast-form/podcast-form.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { TipFormComponent } from './common/tip-form/tip-form.component';
     GalleryComponent,
     TipComponent,
     AddIconComponent,
-    TipFormComponent
+    TipFormComponent,
+    PodcastFormComponent
   ],
   imports: [
     BrowserModule,

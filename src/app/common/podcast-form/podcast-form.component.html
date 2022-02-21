@@ -1,15 +1,15 @@
 <div class="content-form">
     <div class="form-header">
-        <h1>Nuevo Tip</h1>
+        <h1>Nuevo Podcast</h1>
     </div>
-    <form [formGroup]="tipForm" action="">
+    <form [formGroup]="podcastForm" action="">
         <div class="form-part">
             <label for="title">Título: </label>
             <input type="text" id="title" formControlName="title">
         </div>
         <div class="form-part">
-            <label for="text">Texto: </label>
-            <textarea formControlName="text" name="" id="text" cols="30" rows="10"></textarea>
+            <label for="audio">Audio: </label>
+            <input type="file" name="audio" id="">
         </div>
         <div class="form-part">
             <label for="image">Imagen: </label>

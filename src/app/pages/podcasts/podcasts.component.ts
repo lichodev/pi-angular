@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PodcastFormComponent } from 'src/app/common/podcast-form/podcast-form.component';
 import { Podcast } from 'src/app/models/podcast';
 import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
@@ -16,7 +18,8 @@ export class PodcastsComponent implements OnInit {
 
     constructor(private tabSvc: PiTabService,
         private podcastSvc: PodcastService,
-        private authSvc: AuthService) { }
+        private authSvc: AuthService,
+        private matDialog: MatDialog) { }
 
     ngOnInit(): void {
         this.tabSvc.setSelected("INFO");  
@@ -25,6 +28,10 @@ export class PodcastsComponent implements OnInit {
 
     isLogged(): boolean {
         return this.authSvc.getIsLogged();
+    }
+
+    openForm(): void {
+        this.matDialog.open(PodcastFormComponent);
     }
 
 }
