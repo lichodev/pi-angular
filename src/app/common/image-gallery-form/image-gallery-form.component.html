@@ -1,0 +1,19 @@
+<div class="content-form">
+    <div class="form-header">
+        <h1>Nueva Imagen</h1>
+    </div>
+    <form [formGroup]="imageForm" action="">
+        <div class="form-part">
+            <label for="image">Imagen: </label>
+            <input type="file" id="image" formControlName="image"><br>
+        </div>
+        <div class="form-part">
+            <label for="description">Descripción: </label>
+            <input type="text" id="title" formControlName="description">
+        </div>
+        <div class="buttons">
+            <button class="btn cancel" mat-raised-button>Cancelar</button>
+            <button class=" btn send" mat-raised-button>Guardar</button>
+        </div>
+    </form>
+</div>
