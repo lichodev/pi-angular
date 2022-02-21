@@ -1,3 +1,4 @@
+<app-add-icon *ngIf="isLogged()"></app-add-icon>
 <div class="flex">
     <div *ngFor="let pic of gallery" class="card-primera-infancia" (click)="openSingleShow(pic)">
         <div class="img">

@@ -16,7 +16,10 @@ ul {
 }
 li {
     list-style: none;
-    color: var(--pi-light-black);
+    color: var(--pi-purple);
+}
+li h2 {
+    font-family: linotteBold, sans-serif;
 }
 
 .form {

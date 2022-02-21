@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ImagePopUpComponent } from 'src/app/common/image-pop-up/image-pop-up.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
     selector: 'app-gallery',
@@ -14,7 +15,8 @@ export class GalleryComponent implements OnInit {
     extension: string = ".jpg";
     quantity: number = 49;
 
-    constructor(private matDialog: MatDialog) { }
+    constructor(private matDialog: MatDialog,
+        private authSvc: AuthService) { }
 
     ngOnInit(): void {
         this.searchPics();
@@ -38,4 +40,7 @@ export class GalleryComponent implements OnInit {
         })
     }
 
+    isLogged(): boolean {
+        return this.authSvc.getIsLogged();
+    }
 }

@@ -1,0 +1,18 @@
+.add {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--pi-light-green);
+    text-align: center;
+    color: var(--pi-purple); 
+}
+
+.add:hover {
+    background-color: var(--pi-green);
+    color: var(--pi-light-purple);
+    cursor: pointer;
+}
+
+h1 {
+    padding-top: 5px;
+}

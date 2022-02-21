@@ -28,6 +28,9 @@ import { JoinUserComponent } from './pages/join-user/join-user.component';
 import { JoinAdminComponent } from './pages/join-admin/join-admin.component';
 import { FastNoteComponent } from './common/fast-note/fast-note.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { TipComponent } from './pages/tip/tip.component';
+import { AddIconComponent } from './common/add-icon/add-icon.component';
+import { TipFormComponent } from './common/tip-form/tip-form.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
     JoinUserComponent,
     JoinAdminComponent,
     FastNoteComponent,
-    GalleryComponent
+    GalleryComponent,
+    TipComponent,
+    AddIconComponent,
+    TipFormComponent
   ],
   imports: [
     BrowserModule,

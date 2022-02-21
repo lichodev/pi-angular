@@ -1,8 +1,4 @@
+<app-add-icon *ngIf="isLogged()" (click)="openForm()"></app-add-icon>
 <mat-grid-list cols="3" rowHeight="3:1">
-    <img src="../../../assets/tips/tip1.png" alt="">
-    <img src="../../../assets/tips/tip2.png" alt="">
-    <img src="../../../assets/tips/tip3.png" alt="">
-    <img src="../../../assets/tips/tip4.png" alt="">
-    <img src="../../../assets/tips/tip5.png" alt="">
-    <img src="../../../assets/tips/tip6.png" alt="">
+    <img *ngFor="let tip of tips" src="{{tip.image}}" alt="" [routerLink]="['../tip', tip.id]">
   </mat-grid-list>

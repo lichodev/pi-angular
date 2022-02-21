@@ -27,6 +27,10 @@ const CONTACTS: Contact[] = [
         name: "Tamangueyú",
         phone: "2261 411447",
     },
+    {
+        name: "San Manuel",
+        phone: "2261 411447",
+    }
 ];
 
 @Component({

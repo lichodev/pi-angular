@@ -1,0 +1,23 @@
+<div class="content-form">
+    <div class="form-header">
+        <h1>Nuevo Tip</h1>
+    </div>
+    <form [formGroup]="tipForm" action="">
+        <div class="form-part">
+            <label for="title">Título</label>
+            <input type="text" id="title" formControlName="title">
+        </div>
+        <div class="form-part">
+            <label for="text">Texto</label>
+            <textarea formControlName="text" name="" id="text" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-part">
+            <label for="image"></label>
+            <input type="file" id="image" formControlName="image"><br>
+        </div>
+        <div class="buttons">
+            <button class="btn cancel" mat-raised-button>Cancelar</button>
+            <button class=" btn send" mat-raised-button>Guardar</button>
+        </div>
+    </form>
+</div>

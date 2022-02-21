@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { QueriesComponent } from './pages/queries/queries.component';
 import { RemindersComponent } from './pages/reminders/reminders.component';
+import { TipComponent } from './pages/tip/tip.component';
 import { TipsComponent } from './pages/tips/tips.component';
 import { TrainingsComponent } from './pages/trainings/trainings.component';
 import { WorkshopsComponent } from './pages/workshops/workshops.component';
@@ -58,6 +59,10 @@ const routes: Routes = [
         path: 'iniciar-sesion',
         component: LoginComponent,
     },
+    {
+        path: 'tip/:id',
+        component: TipComponent,
+    }
 ];
 
 @NgModule({

@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $primeraInfancia-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$primeraInfancia-theme: mat.define-light-theme((
-  color: (
-    primary: $primeraInfancia-primary,
-    accent: $primeraInfancia-accent,
-    warn: $primeraInfancia-warn,
-  )
-));
+$primeraInfancia-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $primeraInfancia-primary,
+            accent: $primeraInfancia-accent,
+            warn: $primeraInfancia-warn,
+        ),
+    )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -34,33 +35,51 @@ $primeraInfancia-theme: mat.define-light-theme((
 @include mat.all-component-themes($primeraInfancia-theme);
 
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: linotte;
+    src: url(./assets/fonts/LinotteRegular.otf) format("opentype");
+}
+
+@font-face {
+    font-family: linotteBold;
+    src: url(./assets/fonts/LinotteBold.otf) format("opentype");
+}
+
 :root {
     // -- COLORS -- //
-    --pi-yellow: #FFD284;
-    --pi-green: #7FCC99;
-    --pi-pink: #FFA1A3;
-    --pi-purple: #8C648D;
-    --pi-aqua: #2AC3BD;
-    --pi-dark-aqua: #00A79D; 
+    --pi-yellow: #ffd284;
+    --pi-green: #7fcc99;
+    --pi-pink: #ffa1a3;
+    --pi-purple: #8c648d;
+    --pi-aqua: #2ac3bd;
+    --pi-dark-aqua: #00a79d;
     --pi-black: rgb(10 10 10);
     --pi-white: rgb(245 244 243);
 
-    --pi-light-yellow: #FBE19E;
-    --pi-light-green: #AED4AC;
-    --pi-light-pink: #F2BBBC;
-    --pi-light-purple: #9F80A2;
-    --pi-light-aqua: #8ECBCC;
-    --pi-light-dark-aqua: #67B3AE; 
-
+    --pi-light-yellow: #fbe19e;
+    --pi-light-green: #aed4ac;
+    --pi-light-pink: #f2bbbc;
+    --pi-light-purple: #9f80a2;
+    --pi-light-aqua: #8ecbcc;
+    --pi-light-dark-aqua: #67b3ae;
 
     --pi-nav-height: 50px;
     --pi-border-radius: 5px;
 }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-color: var(--pi-black);}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    color: var(--pi-black);
+}
+* {
+    font-family: linotte, sans-serif;
+    color: var(--pi-light-purple);
+}
 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -76,7 +95,7 @@ color: var(--pi-black);}
 
 .content {
     background-color: white;
-    background-image: url('./assets/backgrounds/0a6.jpeg');
+    background-image: url("./assets/backgrounds/0a6.jpeg");
     background-position-x: right;
     background-size: auto;
     background-repeat-x: no-repeat;
@@ -119,6 +138,7 @@ mat-card {
     border-radius: var(--pi-border-radius);
     width: 95%;
     margin-left: 2.5%;
+    font-family: linotteBold, sans-serif;
 }
 
 .form-header h1 {
@@ -131,4 +151,12 @@ input {
 }
 label {
     font-size: 1.3em;
+}
+
+
+app-add-icon {
+    position: fixed;
+    top: 3.5%;
+    right: 0.5%;
+    z-index: 99999;
 }

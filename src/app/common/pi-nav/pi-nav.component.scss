@@ -19,16 +19,19 @@ ul {
    
     padding: 1rem 1rem 0;
     height: 35px;
-    color: var(--pi-white);
+    //color: var(--pi-white);
     font-weight: bold;
+    font-family: linotteBold, sans-serif;
 }
 .nav-item:hover {
     background-color: var(--pi-light-purple);
+    color: var(--pi-green);
     cursor: pointer;
 }
 
 .selected {
     background-color: var(--pi-purple);
+    color: var(--pi-light-green);
 }
 .select {
     background-color: var(--pi-light-green);    
@@ -39,6 +42,7 @@ ul {
     text-align: center;
     padding: 0.5em 0.5em 0 0.5em;
     border-radius: 5px;
+    color: var(--pi-white);
 }
 .option:hover {
     background-color: var(--pi-light-purple);
