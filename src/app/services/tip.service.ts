@@ -57,7 +57,11 @@ export class TipService {
         if (typeof(tip) != "undefined") return tip;
         else return {id: 0, title:"", image: "", text: "404 not found"};
     }
-   
+    
+    getWelcomeTip(): Tip {
+        return TIPS[0];
+    }
+
     post(tip: Tip) {
         console.log("post", tip);
     }

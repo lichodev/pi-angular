@@ -33,6 +33,7 @@ import { AddIconComponent } from './common/add-icon/add-icon.component';
 import { TipFormComponent } from './common/tip-form/tip-form.component';
 import { PodcastFormComponent } from './common/podcast-form/podcast-form.component';
 import { ImageGalleryFormComponent } from './common/image-gallery-form/image-gallery-form.component';
+import { WelcomePopUpComponent } from './common/welcome-pop-up/welcome-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ImageGalleryFormComponent } from './common/image-gallery-form/image-gal
     AddIconComponent,
     TipFormComponent,
     PodcastFormComponent,
-    ImageGalleryFormComponent
+    ImageGalleryFormComponent,
+    WelcomePopUpComponent
   ],
   imports: [
     BrowserModule,

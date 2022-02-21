@@ -5,27 +5,27 @@ const PODCASTS: Podcast[] = [
     {
         title: "Primer podcast",
         audio: "../../../assets/PodInfancia1.mp3",
-        image: "",
+        image: "../../../assets/podcasts/images/p1.png",
     },
     {
         title: "Segundo podcast",
         audio: "../../../assets/PodInfancia1.mp3",
-        image: "",
+        image: "../../../assets/podcasts/images/p1.png",
     },
     {
         title: "Tercer podcast",
         audio: "../../../assets/PodInfancia1.mp3",
-        image: "",
+        image: "../../../assets/podcasts/images/p1.png",
     },
     {
         title: "Cuarto podcast",
         audio: "../../../assets/PodInfancia1.mp3",
-        image: "",
+        image: "../../../assets/podcasts/images/p1.png",
     },
     {
         title: "Quinto podcast",
         audio: "../../../assets/PodInfancia1.mp3",
-        image: "",
+        image: "../../../assets/podcasts/images/p1.png",
     },
 ];
 

@@ -12,7 +12,19 @@ mat-card {
     margin: 1%;
     flex-grow: 1;
     color: var(--pi-purple);
+    display: flex;
 }
 audio {
     width: 90%;
+}
+
+
+.left {
+    width: 15%;
+}
+.right {
+    width: 85%;
+}
+img {
+    width:7rem;
 }

@@ -22,7 +22,7 @@ export class TipFormComponent implements OnInit {
         })
     }
 
-    postTip(): void {
+    post(): void {
         this.tipSvc.post(this.tipForm.value);
     }
 
