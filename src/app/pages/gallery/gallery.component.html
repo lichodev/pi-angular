@@ -1,5 +1,14 @@
 <app-add-icon *ngIf="isLogged()" (click)="openForm()"></app-add-icon>
 <div class="flex">
+    <div *ngFor="let pic of gallery1" class="card-primera-infancia" (click)="openSingleShow(pic.image)">
+        <div class="img">
+            <img [src]="pic.image" alt="">
+        </div>
+        <h2>{{pic.description}}</h2>
+    </div>
+</div>
+<!--
+<div class="flex">
     <div *ngFor="let pic of gallery" class="card-primera-infancia" (click)="openSingleShow(pic)">
         <div class="img">
             <img src="{{pic}}" alt="">
@@ -7,3 +16,4 @@
         <h2>Descripción imagen</h2>
     </div>
 </div>
+-->

@@ -3,11 +3,11 @@
         <div class="form-header">
             <h1>Ingresá tus datos</h1>
         </div>
-        <form action="">
+        <form [formGroup]="loginForm" action="">
             <label for="username">Nombre de usuario</label><br>
-            <input type="text" name="" id="username"><br>
+            <input formControlName="username" type="text" name="" id="username"><br>
             <label for="password">Contraseña</label><br>
-            <input type="password" name="" id="password"><br>
+            <input formControlName="password" type="password" name="" id="password"><br>
 
             <button class=" btn send" mat-raised-button (click)="login()">Iniciar sesión</button>
         </form>

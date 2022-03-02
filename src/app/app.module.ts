@@ -34,6 +34,8 @@ import { TipFormComponent } from './common/tip-form/tip-form.component';
 import { PodcastFormComponent } from './common/podcast-form/podcast-form.component';
 import { ImageGalleryFormComponent } from './common/image-gallery-form/image-gallery-form.component';
 import { WelcomePopUpComponent } from './common/welcome-pop-up/welcome-pop-up.component';
+import { HttpClientModule } from '@angular/common/http';
+import { interceptorProvider } from './interceptors/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -72,9 +74,10 @@ import { WelcomePopUpComponent } from './common/welcome-pop-up/welcome-pop-up.co
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
