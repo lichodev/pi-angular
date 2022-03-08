@@ -20,14 +20,14 @@ export class GalleryService {
     post(imgData: GalleryImage, img: File): Observable<HttpEvent<String>> {
         const data: FormData = new FormData;
         data.append('file', img);
+        data.append('description', imgData.description);
 
-        const newRequest = new HttpRequest('POST', URL+'/'+imgData.description, data, {
+        const newRequest = new HttpRequest('POST', URL, data, {
             reportProgress: true,
             responseType: 'text'
         })
         return this.http.request(newRequest);
     }
-
 
 
 }

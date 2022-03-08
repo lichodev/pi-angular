@@ -1,4 +1,7 @@
+import { HttpClient, HttpEvent, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BASE_URL } from 'src/environments/environment.prod';
 import { Podcast } from '../models/podcast';
 
 const PODCASTS: Podcast[] = [
@@ -29,18 +32,30 @@ const PODCASTS: Podcast[] = [
     },
 ];
 
+const URL = BASE_URL + '/podcast';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PodcastService {
     
-    constructor() { }
+    constructor(private http: HttpClient) { }
     
-    getPodcasts(): Podcast[] {
-        return PODCASTS;
+    getPodcasts(): Observable<Podcast[]> {
+        return this.http.get<Podcast[]>(URL);
     }
 
-    post(podcast: Podcast) {
-        console.log("post", podcast)
+    post(podcast: Podcast, audio: File, image: File): Observable<HttpEvent<String>> {
+        let data: FormData = new FormData;
+        data.append('title', podcast.title);
+        data.append('audio', audio);
+        data.append('file', image);
+
+        const req = new HttpRequest('POST', URL, data, {
+            reportProgress: true,
+            responseType: "text",
+        });
+
+        return this.http.request(req);
     }
 }

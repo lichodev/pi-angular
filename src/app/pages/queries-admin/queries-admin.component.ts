@@ -12,15 +12,17 @@ import { QueryService } from 'src/app/services/query.service';
 export class QueriesAdminComponent implements OnInit {
 
     queries: Query[] = [];
-    displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'question', 'actions'];
+    displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'question', 'status', 'actions'];
     dataSource = this.queries;
 
   constructor(private querySvc: QueryService,
     private matDialog: MatDialog) { }
 
   ngOnInit(): void {
-      this.queries = this.querySvc.getQueries();
-      this.dataSource = this.queries;
+      this.querySvc.get().subscribe(q => {
+          this.queries = q;
+          this.dataSource = this.queries;
+      })
   }
 
   openConfirmPopUp(action: string): void {

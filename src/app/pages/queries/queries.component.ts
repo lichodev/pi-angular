@@ -1,7 +1,9 @@
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/models/contact';
 import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
+import { TokenService } from 'src/app/services/token.service';
 
 const CONTACTS: Contact[] = [
     {
@@ -36,6 +38,7 @@ export class QueriesComponent implements OnInit {
     thereIsUserLoged: boolean = false;
 
     constructor(private tabSvc: PiTabService,
+        private tknSvc: TokenService,
         private authSvc: AuthService) { }
 
     ngOnInit(): void {
@@ -43,6 +46,7 @@ export class QueriesComponent implements OnInit {
     }
 
     isLogged(): boolean {
-        return this.authSvc.getIsLogged();
+        if (this.tknSvc.getToken()) return true;
+        return false;
     }
 }

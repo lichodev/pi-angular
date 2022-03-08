@@ -26,7 +26,11 @@ export class GalleryComponent implements OnInit {
         private gallerySvc: GalleryService) { }
 
     ngOnInit(): void {
-        //this.searchPics();
+        this.getImages();
+    }
+    
+    getImages() {
+        this.gallery1 = [];
         this.gallerySvc.get().subscribe(gallery => {
             gallery.forEach(img => {
                 let path = 'data:image/jpeg;base64,' + img.image;
@@ -54,7 +58,11 @@ export class GalleryComponent implements OnInit {
     }
 
     openForm(): void {
-        this.matDialog.open(ImageGalleryFormComponent);
+        const dialog = this.matDialog.open(ImageGalleryFormComponent);
+
+        dialog.afterClosed().subscribe(result => {
+            this.getImages();
+        });
     }
 
     isLogged(): boolean {

@@ -1,8 +1,30 @@
-<mat-grid-list cols="3" rowHeight="3:1">
-    <img src="../../../assets/tarjetas/0a6.jpeg" alt="" (click)="openSingleShow('../../../assets/tarjetas/0a6.jpeg')">
-    <img src="../../../assets/tarjetas/6a9.jpeg" alt="">
-    <img src="../../../assets/tarjetas/9a12.jpeg" alt="">
-    <img src="../../../assets/tarjetas/12a15.jpeg" alt="">
-    <img src="../../../assets/tarjetas/15a18.jpeg" alt="">
-    <img src="../../../assets/tarjetas/18a24.jpeg" alt="">
+  <mat-grid-list cols="3" rowHeight="3:1">
+    <img *ngFor="let r of reminders" [src]="r.image" alt="" (click)="openSingleShow(r.id)">
   </mat-grid-list>
+
+
+  <!--
+  <div class="content-form">
+    <div class="form-header">
+        <h1>Nuevo Tip</h1>
+    </div>
+    <form [formGroup]="reminderForm" action="">
+        <div class="form-part">
+            <label for="title">Since: </label>
+            <input type="text" id="title" formControlName="since">
+        </div>
+        <div class="form-part">
+            <label for="text">Until: </label>
+            <textarea formControlName="until" name="" id="text" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-part">
+            <label for="image">Imagen: </label>
+            <input type="file" id="image" (change)="onFileChange($event)" formControlName="image"><br>
+        </div>
+        <div class="buttons">
+            <button class="btn cancel" mat-raised-button [mat-dialog-close]="true">Cancelar</button>
+            <button class=" btn send" mat-raised-button (click)="post()" [mat-dialog-close]="true">Guardar</button>
+        </div>
+    </form>
+</div>
+-->

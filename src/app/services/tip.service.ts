@@ -1,4 +1,8 @@
+import { ObserversModule } from '@angular/cdk/observers';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BASE_URL } from 'src/environments/environment.prod';
 import { Tip } from '../models/tip';
 
 const TIPS: Tip[] = [
@@ -40,29 +44,56 @@ const TIPS: Tip[] = [
     },
 ];
 
+const URL = BASE_URL + '/tips';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class TipService {
     
-    constructor() { }
+    constructor(private http: HttpClient) { }
     
-    getTips(): Tip[] {
-        return TIPS;
+    getTips(): Observable<Tip[]> {
+        return this.http.get<Tip[]>(URL);
     }
     
-    getTip(id: number): Tip {
-        let tip = TIPS.find(t => t.id === id);
-        if (typeof(tip) != "undefined") return tip;
-        else return {id: 0, title:"", image: "", text: "404 not found"};
+    getTip(id: number): Observable<Tip> {
+        return this.http.get<Tip>(URL+'/'+id);
     }
     
     getWelcomeTip(): Tip {
         return TIPS[0];
     }
 
-    post(tip: Tip) {
-        console.log("post", tip);
+    post(tip: Tip, image: File): Observable<HttpEvent<String>> {
+        let data: FormData = new FormData;
+        data.append('file', image);
+        data.append('title', tip.title);
+        data.append('text', tip.text);
+
+        const req = new HttpRequest('POST', URL, data, {
+            reportProgress: true,
+            responseType: 'text'
+        })
+        return this.http.request(req);
+    }
+
+    yes(id: number) {
+        this.put(id, 1)
+        .subscribe( r => {
+            console.log(r);
+        })
+    }
+
+    no(id: number) {
+        this.put(id, -1)
+        .subscribe( r => {
+            console.log(r);
+        })
+    }
+
+    put(id: number, value: number): Observable<boolean> {
+        return this.http.put<boolean>(URL + '/' + id, value);
     }
 }

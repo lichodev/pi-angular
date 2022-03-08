@@ -1,8 +1,29 @@
+<div class="content-form">
+    <div class="form-header">
+        <h1>Nuevo Taller</h1>
+    </div>
+    <form [formGroup]="workshopForm" action="">
+        <div class="form-part">
+            <label for="title">Title: </label>
+            <input type="text" id="title" formControlName="title">
+        </div>
+        <div class="form-part">
+            <label for="video">Video: </label>
+            <input type="file" id="video" (change)="onVideoChange($event)" formControlName="video"><br>
+        </div>
+        <div class="buttons">
+            <button class="btn cancel" mat-raised-button [mat-dialog-close]="true">Cancelar</button>
+            <button class=" btn send" mat-raised-button (click)="post()" [mat-dialog-close]="true">Guardar</button>
+        </div>
+    </form>
+</div>
+
 <div class="content">
     <div class="workshops">
         <mat-card *ngFor="let ws of workshops">
             <mat-card-title>{{ws.title}} - {{ws.description}}</mat-card-title>
-            <video src="{{ws.video}}" controls></video>
+            <!--<embed [src]="ws.video" type="video/mp4">-->
+            <video [src]="ws.video" controls></video>
         </mat-card>
     </div>
 </div>

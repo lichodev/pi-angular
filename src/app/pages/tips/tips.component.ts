@@ -5,6 +5,7 @@ import { Tip } from 'src/app/models/tip';
 import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
 import { TipService } from 'src/app/services/tip.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
     selector: 'app-tips',
@@ -14,22 +15,43 @@ import { TipService } from 'src/app/services/tip.service';
 export class TipsComponent implements OnInit {
 
     tips: Tip[] = [];
+    timer: any;
 
     constructor(private tabSvc: PiTabService,
         private tipSvc: TipService,
         private authSvc: AuthService,
-        private matDialog: MatDialog) { }
+        private matDialog: MatDialog,
+        private tknSvc: TokenService) { }
 
     ngOnInit(): void {
         this.tabSvc.setSelected("INFO");
-        this.tips = this.tipSvc.getTips();
+        this.getTips();
     }
 
     isLogged(): boolean {
-        return this.authSvc.getIsLogged();
+        if (this.tknSvc.getToken()) return true;
+        return false;
+    }
+
+    getTips() {
+        this.tips = [];
+        this.tipSvc.getTips().subscribe(tips => {
+            tips.forEach(tip => {
+                let path = 'data:image/jpeg;base64,' + tip.image;
+                let newTip: Tip = { id: tip.id, image: path, title: tip.title, text: tip.text };
+                this.tips.push(newTip);
+            });
+        });
+
     }
 
     openForm(): void {
-        this.matDialog.open(TipFormComponent);
+        const dialog = this.matDialog.open(TipFormComponent);
+
+        dialog.afterClosed().subscribe(result => {
+            this.getTips();
+        });
     }
+
+
 }

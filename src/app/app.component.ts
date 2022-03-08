@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WelcomePopUpComponent } from './common/welcome-pop-up/welcome-pop-up.component';
+import { TokenService } from './services/token.service';
 
 @Component({
     selector: 'app-root',
@@ -10,9 +11,11 @@ import { WelcomePopUpComponent } from './common/welcome-pop-up/welcome-pop-up.co
 export class AppComponent implements OnInit{
 
     title = 'primeraInfancia';
-    constructor(private matDialog: MatDialog) { }
+    constructor(private matDialog: MatDialog,
+        private tknSvc: TokenService) { }
 
     ngOnInit() {
-        this.matDialog.open(WelcomePopUpComponent, {backdropClass: 'backdropBackground'});
+        if (!this.tknSvc.thereIsTipSeen())
+            this.matDialog.open(WelcomePopUpComponent, {backdropClass: 'backdropBackground'});
     }
 }

@@ -15,6 +15,7 @@
         </div>
        <div class="nav-item" [class]="getSelected() == 'CONSULTAS' ? 'selected' : 'nav-item'" [routerLink]="['consultas']" (click)="hideOptions()">CONSULTAS</div>
        <div class="nav-item" [class]="getSelected() == 'QUIERO SER PARTE' ? 'selected' : 'nav-item'" [routerLink]="['sumarme']" (click)="hideOptions()">QUIERO SER PARTE</div>
-       <div class="nav-item" [class]="getSelected() == 'INICIAR SESIÓN' ? 'selected' : 'nav-item'" [routerLink]="['iniciar-sesion']" (click)="hideOptions()">INICIAR SESIÓN</div>
+       <div class="nav-item" *ngIf="!isLogged()" [class]="getSelected() == 'INICIAR SESIÓN' ? 'selected' : 'nav-item'" [routerLink]="['iniciar-sesion']" (click)="hideOptions()">INICIAR SESIÓN</div>
+       <div class="nav-item" *ngIf="isLogged()" [routerLink]="['/']" (click)="logout()">CERRAR SESIÓN</div>
     </ul>
 </nav>

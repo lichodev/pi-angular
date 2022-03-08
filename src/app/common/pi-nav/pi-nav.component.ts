@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PiTabService } from 'src/app/services/pi-tab.service';
+import { TokenService } from 'src/app/services/token.service';
 
 interface NavOption {
     value: string;
@@ -16,7 +17,8 @@ export class PiNavComponent implements OnInit {
     selected: string = "";
     showOptions: boolean = false;
 
-    constructor(private tabSvc: PiTabService) { }
+    constructor(private tabSvc: PiTabService,
+        private tknSvc: TokenService) { }
 
     ngOnInit(): void {
         this.tabSvc.pageSetected.subscribe(p => this.selected = p);
@@ -34,6 +36,16 @@ export class PiNavComponent implements OnInit {
         if(this.showOptions) {
             this.showOptions = false;
         }
+    }
+
+    isLogged(): boolean {
+        if (this.tknSvc.getToken()) return true;
+        return false;
+    }
+
+    logout() {
+        this.tknSvc.logout();
+        this.hideOptions();
     }
 
 }

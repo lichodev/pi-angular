@@ -1,7 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BASE_URL } from 'src/environments/environment.prod';
 import { Query } from '../models/query';
 
 const QUERIES: Query[] = [];
+const URL = BASE_URL + '/questions';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +23,7 @@ export class QueryService {
         status: 0,
     }
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     setQuery(q: Query) {
         this.query = q;
@@ -37,8 +41,8 @@ export class QueryService {
         }
     }
 
-    post() {
-        console.log("post")//post
+    post(): Observable<boolean> {
+        return this.http.post<boolean>(URL, this.query);
     }
 
     agree(id: number) {
@@ -46,15 +50,18 @@ export class QueryService {
         this.query.status = 1;
     }
 
-    getQueries(): Query[] {
-        return QUERIES;
+    get(): Observable<Query[]> {
+        return this.http.get<Query[]>(URL);
     }
 
     confirm() {
-        this.put();
+        this.put()
+        .subscribe( r=> {
+            console.log(r);
+        })
     }
 
-    put(): void {
-        console.log("put")
+    put(): Observable<boolean> {
+        return this.http.put<boolean>(URL + '/' + this.query.id, this.query);
     }
 }

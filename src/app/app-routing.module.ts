@@ -7,6 +7,7 @@ import { JoinComponent } from './pages/join/join.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PodcastsComponent } from './pages/podcasts/podcasts.component';
 import { QueriesComponent } from './pages/queries/queries.component';
+import { ReminderComponent } from './pages/reminder/reminder.component';
 import { RemindersComponent } from './pages/reminders/reminders.component';
 import { TipComponent } from './pages/tip/tip.component';
 import { TipsComponent } from './pages/tips/tips.component';
@@ -62,6 +63,10 @@ const routes: Routes = [
     {
         path: 'tip/:id',
         component: TipComponent,
+    },
+    {
+        path: 'recordatorio/:id',
+        component: ReminderComponent,
     }
 ];
 

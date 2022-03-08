@@ -21,12 +21,6 @@ export class AuthService {
         return this.http.post<Response>(URL_LOGIN, user);
     }
     
-    /**
-     * login() {
-        this.isLogged$ = true;
-        this.isLogged.next(this.isLogged$);
-    }
-     */
 
     logout() {
         this.isLogged$ = false;

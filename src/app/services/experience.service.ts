@@ -1,5 +1,9 @@
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BASE_URL } from 'src/environments/environment.prod';
 import { Experience } from '../models/experience';
+import { TokenService } from './token.service';
 
 const EXPERIENCES: Experience[] = [
     {
@@ -52,6 +56,8 @@ const EXPERIENCES: Experience[] = [
         enabler: 0,
     },
 ];
+const URL = BASE_URL + '/experiences';
+const URL_ADMIN = URL + '/admin';
 
 @Injectable({
     providedIn: 'root'
@@ -65,27 +71,16 @@ export class ExperienceService {
         status: null,
         enabler: null,
     }
+    image: File = new File([], "file");
 
-    constructor() { }
+    constructor(private http: HttpClient,
+        private tknSvc: TokenService) { }
 
-    getExperiences(): Experience[] {
-        return EXPERIENCES;
-        //el backend va a validar si debe devolver todas o solo las habilitadas pára mostrar,
-        //dependiendo de si el usuario está logeado o no
-    }
-
-    setExperience(e: Experience) {
-        this.experience = e;
-    }
-
-    reject(id: number) {
-        this.experience.id = id;
-        this.experience.status = 0;
-    }
-
-    agree(id: number) {
-        this.experience.id = id;
-        this.experience.status = 1;
+    get(): Observable<Experience[]> {
+        let url;
+        if(this.tknSvc.getToken()) url = URL_ADMIN;
+        else url = URL;
+        return this.http.get<Experience[]>(url);
     }
 
     clear() {
@@ -98,23 +93,52 @@ export class ExperienceService {
         }
     }
 
+    setExperience(e: Experience, img: File) {
+        this.experience = e;
+        this.image = img;
+    }
+
+    post(): Observable<HttpEvent<String>> {
+        let data: FormData = new FormData;
+        data.append('file', this.image);
+        data.append('text', this.experience.text);
+
+        const req = new HttpRequest('POST', URL, data, {
+            reportProgress: true,
+            responseType: 'text'
+        })
+        return this.http.request(req);
+    }
+
+    reject(id: number) {
+        this.experience.id = id;
+        this.experience.status = 0;
+    }
+
+    agree(id: number) {
+        this.experience.id = id;
+        this.experience.status = 1;
+    }
+
     confirm() {
         if (this.experience.status == 1) {
-            this.put();
+            this.put()
+            .subscribe(r => {
+                console.log(r)
+            })
         } else {
-            this.delete();
+            this.delete()
+            .subscribe(r => {
+                console.log(r)
+            })
         }
     }
 
-    post() {
-        console.log("post")//post
+    delete(): Observable<boolean> {
+       return this.http.delete<boolean>(URL + '/' + this.experience.id);
     }
 
-    delete(): void {
-        console.log("delete")
-    }
-
-    put(): void {
-        console.log("put")
+    put(): Observable<boolean> {
+        return this.http.put<boolean>(URL + '/' + this.experience.id, this.experience);
     }
 }

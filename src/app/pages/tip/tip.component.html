@@ -1,6 +1,11 @@
 <div class="content">
     <div class="tip">
-        <img src="{{tip.image}}" alt="">
-        <p>{{tip.text}}</p>
+        <img [src]="tip.image" alt="">
+        <div class="text">
+            <p>{{tip.text}}</p>
+        </div>
+    </div>
+    <div class="poll">
+        <app-poll [type]="type" [id]="id"></app-poll>
     </div>
 </div>

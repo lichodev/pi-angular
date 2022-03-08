@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpEvent } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TipService } from 'src/app/services/tip.service';
 
 @Component({
@@ -10,8 +12,11 @@ import { TipService } from 'src/app/services/tip.service';
 export class TipFormComponent implements OnInit {
 
     tipForm!: FormGroup;
+    image!: File;
 
-    constructor(private tipSvc: TipService,
+    constructor(@ Inject(MAT_DIALOG_DATA) public result: String,
+    public dialogRef: MatDialogRef<TipFormComponent>,
+        private tipSvc: TipService,
         private fb: FormBuilder,) { }
 
     ngOnInit(): void {
@@ -22,8 +27,19 @@ export class TipFormComponent implements OnInit {
         })
     }
 
-    post(): void {
-        this.tipSvc.post(this.tipForm.value);
+    onFileChange(event: any) {
+
+        if (event.target.files.length > 0) {
+            this.image = event.target.files[0];
+        }
+    }
+
+    post() {
+        this.tipSvc.post(this.tipForm.value, this.image)
+        .subscribe(res => {
+            this.result = res.type.toString();
+            this.dialogRef.close();
+        })
     }
 
 }

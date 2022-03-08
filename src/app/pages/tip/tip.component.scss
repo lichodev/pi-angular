@@ -1,11 +1,26 @@
 .content {
-    background-image: none;
+    justify-content: center;
 }
 .tip {
-    flex-basis: 70vw;
-    text-align: center;
+    //flex-basis: 70vw;
+    width: 70vw;
+    display: flex;
+    margin: 2% 0 2% 15vw;
+}
+.text {
+    width: 80%;
+    margin-left: 10%;
+}
+.text p {
+    font-size: xx-large;
 }
 img {
     width: 50%;
+    height: fit-content;
+    margin-top: 5%;
 }
-
+.poll {
+    width: 20vw;
+    margin-left: 40vw;
+    margin-bottom: 3%;
+}

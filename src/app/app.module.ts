@@ -36,6 +36,7 @@ import { ImageGalleryFormComponent } from './common/image-gallery-form/image-gal
 import { WelcomePopUpComponent } from './common/welcome-pop-up/welcome-pop-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { interceptorProvider } from './interceptors/interceptor.service';
+import { ReminderComponent } from './pages/reminder/reminder.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { interceptorProvider } from './interceptors/interceptor.service';
     TipFormComponent,
     PodcastFormComponent,
     ImageGalleryFormComponent,
-    WelcomePopUpComponent
+    WelcomePopUpComponent,
+    ReminderComponent
   ],
   imports: [
     BrowserModule,

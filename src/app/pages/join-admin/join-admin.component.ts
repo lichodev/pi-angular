@@ -12,15 +12,17 @@ import { RequestService } from 'src/app/services/request.service';
 export class JoinAdminComponent implements OnInit {
 
     requests: Request[] = [];
-    displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'why', 'how', 'actions'];
+    displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'why', 'how', 'status', 'actions'];
     dataSource = this.requests;
 
   constructor(private requestSvc: RequestService,
     private matDialog: MatDialog) { }
 
   ngOnInit(): void {
-      this.requests = this.requestSvc.getRequests();
-      this.dataSource = this.requests;
+      this.requestSvc.get().subscribe(r => {
+          this.requests = r;
+          this.dataSource = this.requests;
+      })
   }
 
   openConfirmPopUp(action: string): void {

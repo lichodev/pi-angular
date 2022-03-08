@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { PiTabService } from 'src/app/services/pi-tab.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-join',
@@ -12,6 +13,7 @@ export class JoinComponent implements OnInit {
     thereIsUserLoged!: boolean;
 
   constructor(private tabSvc: PiTabService,
+    private tknSvc: TokenService,
     private authSvc: AuthService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,8 @@ export class JoinComponent implements OnInit {
   }
 
   isLogged(): boolean {
-    return this.authSvc.getIsLogged();
+    if (this.tknSvc.getToken()) return true;
+    return false;
   }
 
 }

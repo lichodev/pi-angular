@@ -19,8 +19,16 @@ export class ExperienceAdminComponent implements OnInit {
         private matDialog: MatDialog) { }
 
     ngOnInit(): void {
-        this.experiences = this.experienceSvc.getExperiences();
-        this.dataSource = this.experiences;
+        this.experienceSvc.get().subscribe(experiences => {
+            experiences.forEach(e => {
+                if (e.image != null) {   
+                    let path = 'data:image/jpeg;base64,' + e.image;
+                    e.image = path;
+                } else e.image = "";
+            });
+            this.experiences = experiences
+            this.dataSource = this.experiences;
+        } );
     }
 
     openConfirmPopUp(action: string): void {

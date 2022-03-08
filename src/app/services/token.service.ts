@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
+const TIP_SEEN = 'TipSeen';
 
 @Injectable({
     providedIn: 'root'
@@ -35,5 +36,16 @@ export class TokenService {
 
     public logout() {
         window.sessionStorage.clear();
+        this.setTipSeen();
+    }
+
+    public setTipSeen() {
+        window.sessionStorage.removeItem(TIP_SEEN);
+        window.sessionStorage.setItem(TIP_SEEN, 'true');
+    }
+
+    public thereIsTipSeen(): boolean {
+        let seen = sessionStorage.getItem(TIP_SEEN);
+        return seen != null; 
     }
 }

@@ -1,6 +1,6 @@
 export interface Tip {
     id: number;
-    title: string | null;
+    title: string;
     image: string;
     text: string;
 }

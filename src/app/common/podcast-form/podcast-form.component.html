@@ -9,15 +9,15 @@
         </div>
         <div class="form-part">
             <label for="audio">Audio: </label>
-            <input type="file" name="audio" id="">
+            <input type="file" (change)="onAudioChange($event)" name="audio" id="">
         </div>
         <div class="form-part">
             <label for="image">Imagen: </label>
-            <input type="file" id="image" formControlName="image"><br>
+            <input type="file" (change)="onImageChange($event)" id="image" formControlName="image"><br>
         </div>
         <div class="buttons">
             <button class="btn cancel" mat-raised-button [mat-dialog-close]="true">Cancelar</button>
-            <button class=" btn send" mat-raised-button (click)="post()" [mat-dialog-close]="true">Guardar</button>
+            <button class=" btn send" mat-raised-button (click)="post()">Guardar</button>
         </div>
     </form>
 </div>
