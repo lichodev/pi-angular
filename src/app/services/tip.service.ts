@@ -45,7 +45,7 @@ const TIPS: Tip[] = [
 ];
 
 const URL = BASE_URL + '/tips';
-
+const URL_DAILY = BASE_URL + '/daily-tip';
 
 @Injectable({
     providedIn: 'root'
@@ -62,8 +62,8 @@ export class TipService {
         return this.http.get<Tip>(URL+'/'+id);
     }
     
-    getWelcomeTip(): Tip {
-        return TIPS[0];
+    getWelcomeTip(): Observable<Tip> {
+        return this.http.get<Tip>(URL_DAILY);
     }
 
     post(tip: Tip, image: File): Observable<HttpEvent<String>> {

@@ -2,14 +2,13 @@
     justify-content: center;
 }
 .tip {
-    //flex-basis: 70vw;
     width: 70vw;
-    display: flex;
     margin: 2% 0 2% 15vw;
+    padding: 2% 0;
+    text-align: justify;
 }
 .text {
-    width: 80%;
-    margin-left: 10%;
+    width: 97%;
 }
 .text p {
     font-size: xx-large;
@@ -17,7 +16,8 @@
 img {
     width: 50%;
     height: fit-content;
-    margin-top: 5%;
+    margin: 0 2% 0 0;
+    float: left;
 }
 .poll {
     width: 20vw;

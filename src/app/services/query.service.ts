@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { BASE_URL } from 'src/environments/environment.prod';
+import { BASE_URL, ERROR_CLASS, SAVED_CHANGES, SAVED_MSG, SAVE_ERROR, SUCCESS_CLASS } from 'src/environments/environment.prod';
+import { FastNoteComponent } from '../common/fast-note/fast-note.component';
 import { Query } from '../models/query';
 
 const QUERIES: Query[] = [];
@@ -20,10 +22,11 @@ export class QueryService {
         email: "",
         phone: "",
         text: "",
-        status: 0,
+        replied: false
     }
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+        private matDialog: MatDialog,) { }
 
     setQuery(q: Query) {
         this.query = q;
@@ -37,8 +40,15 @@ export class QueryService {
             email: "",
             phone: "",
             text: "",
-            status: 0,
+            replied: false,
         }
+    }
+
+    ok() {
+        this.post()
+            .subscribe(r => {
+                this.showResult(r.toString(), this.getSuccessMsg(false));
+            });
     }
 
     post(): Observable<boolean> {
@@ -47,7 +57,7 @@ export class QueryService {
 
     agree(id: number) {
         this.query.id = id;
-        this.query.status = 1;
+        this.query.replied = true;
     }
 
     get(): Observable<Query[]> {
@@ -57,11 +67,37 @@ export class QueryService {
     confirm() {
         this.put()
         .subscribe( r=> {
-            console.log(r);
+            this.showResult(r.toString(), this.getSuccessMsg(true));
         })
     }
 
     put(): Observable<boolean> {
         return this.http.put<boolean>(URL + '/' + this.query.id, this.query);
+    }
+
+    showResult(result: String, success: String) {
+        let response: String;
+        let className: String;
+        if (result == "true") {
+            response = success;
+            className = SUCCESS_CLASS;
+        }
+        else {
+            response = SAVE_ERROR;
+            className = ERROR_CLASS;
+        }
+        this.matDialog.open(FastNoteComponent, {
+            data: {
+                response: response,
+                class: className
+            }
+        })
+    }
+
+    getSuccessMsg(admin: boolean): String {
+        if (admin) {
+            return SAVED_CHANGES;
+        }
+        return SAVED_MSG;
     }
 }

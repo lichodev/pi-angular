@@ -1,7 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PodcastService } from 'src/app/services/podcast.service';
+import { ERROR_CLASS, SAVED_PODCAST, SAVE_ERROR, SUCCESS_CLASS } from 'src/environments/environment.prod';
+import { FastNoteComponent } from '../fast-note/fast-note.component';
 
 @Component({
     selector: 'app-podcast-form',
@@ -13,11 +15,13 @@ export class PodcastFormComponent implements OnInit {
     podcastForm!: FormGroup;
     audio!: File;
     image!: File;
+    timer: any;
 
-    constructor(@ Inject(MAT_DIALOG_DATA) public result: String,
+    constructor(@ Inject(MAT_DIALOG_DATA) public result: any,
     public dialogRef: MatDialogRef<PodcastFormComponent>,
     private podcastSvc: PodcastService,
-        private fb: FormBuilder,) { }
+        private fb: FormBuilder,
+        private matDialog: MatDialog,) { }
 
     ngOnInit(): void {
         this.podcastForm = this.fb.group({
@@ -30,8 +34,13 @@ export class PodcastFormComponent implements OnInit {
     post(): void {
         this.podcastSvc.post(this.podcastForm.value, this.audio, this.image)
         .subscribe(r => {
-            this.result = r.type.toString();
-            this.dialogRef.close();
+            this.result = this.getSuccess();
+            this.timer = setTimeout(() =>{
+                this.dialogRef.close();
+            }, 3000)
+        },
+        err => {
+            this.showResult(this.getError());
         })
     }
 
@@ -44,6 +53,29 @@ export class PodcastFormComponent implements OnInit {
     onImageChange(event: any) {
         if (event.target.files.length > 0) {
             this.image = event.target.files[0];
+        }
+    }
+
+    getSuccess(): any {
+        return {
+            response: SAVED_PODCAST,
+            className: SUCCESS_CLASS,
+        }
+    }
+
+    showResult(result: any) {
+        this.matDialog.open(FastNoteComponent, {
+            data: {
+                response: result.response,
+                class: result.className
+            }
+        })
+    }
+
+    getError(): any {
+        return {
+            response: SAVE_ERROR,
+            className: ERROR_CLASS,
         }
     }
 

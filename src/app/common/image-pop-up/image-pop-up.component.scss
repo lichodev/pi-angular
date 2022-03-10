@@ -16,7 +16,10 @@
 }
 .image {
     text-align: center;
+    height: 55vh;
+    width: auto;
 }
 .image img {
-    width: 95%;
+    height: 95%;
+    object-fit: contain;
 }

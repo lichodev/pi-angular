@@ -6,5 +6,5 @@ export interface Request {
     phone: string;
     why: string;
     how: string;
-    replied: boolean | null;
+    replied: boolean;
 }

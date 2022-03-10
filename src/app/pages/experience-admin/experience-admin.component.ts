@@ -19,6 +19,11 @@ export class ExperienceAdminComponent implements OnInit {
         private matDialog: MatDialog) { }
 
     ngOnInit(): void {
+        this.get();
+    }
+    
+    get() {
+        this.experiences = [];
         this.experienceSvc.get().subscribe(experiences => {
             experiences.forEach(e => {
                 if (e.image != null) {   
@@ -33,7 +38,7 @@ export class ExperienceAdminComponent implements OnInit {
 
     openConfirmPopUp(action: string): void {
         let object: string = "experiencia";
-        this.matDialog.open(ConfirmPopUpComponent, {
+        const dialog = this.matDialog.open(ConfirmPopUpComponent, {
             data: {
                 action: action,
                 object: object,
@@ -41,6 +46,10 @@ export class ExperienceAdminComponent implements OnInit {
                 admin: true,
                 service: this.experienceSvc,
             }
+        });
+
+        dialog.afterClosed().subscribe(data => {
+            this.get();
         });
     }
 

@@ -1,4 +1,4 @@
-<div class="content-form">
+<!--<div class="content-form">
     <div class="form-header">
         <h1>Nuevo Taller</h1>
     </div>
@@ -16,13 +16,12 @@
             <button class=" btn send" mat-raised-button (click)="post()" [mat-dialog-close]="true">Guardar</button>
         </div>
     </form>
-</div>
+</div>-->
 
 <div class="content">
     <div class="workshops">
         <mat-card *ngFor="let ws of workshops">
-            <mat-card-title>{{ws.title}} - {{ws.description}}</mat-card-title>
-            <!--<embed [src]="ws.video" type="video/mp4">-->
+            <mat-card-title>{{ws.title}}</mat-card-title>
             <video [src]="ws.video" controls></video>
         </mat-card>
     </div>

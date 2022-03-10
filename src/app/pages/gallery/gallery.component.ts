@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { FastNoteComponent } from 'src/app/common/fast-note/fast-note.component';
 import { ImageGalleryFormComponent } from 'src/app/common/image-gallery-form/image-gallery-form.component';
 import { ImagePopUpComponent } from 'src/app/common/image-pop-up/image-pop-up.component';
 import { GalleryImage } from 'src/app/models/gallery-image';
 import { AuthService } from 'src/app/services/auth.service';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { TokenService } from 'src/app/services/token.service';
+import { ERROR_CLASS, SAVED_IMAGE, SAVE_ERROR, SUCCESS_CLASS } from 'src/environments/environment.prod';
 
 @Component({
     selector: 'app-gallery',
@@ -34,8 +36,8 @@ export class GalleryComponent implements OnInit {
         this.gallerySvc.get().subscribe(gallery => {
             gallery.forEach(img => {
                 let path = 'data:image/jpeg;base64,' + img.image;
-                let newImage: GalleryImage = {id: 0, image: path, description: img.description};
-                this.gallery1.push(newImage);
+                img.image = path;
+                this.gallery1.push(img);
             });
         });
     }
@@ -48,10 +50,10 @@ export class GalleryComponent implements OnInit {
         }
     }
 
-    openSingleShow(img: string) {
+    openSingleShow(id: number) {
         this.matDialog.open(ImagePopUpComponent, {
             data: {
-                image: img,
+                id: id,
                 poll: false,
             }
         })
@@ -71,4 +73,5 @@ export class GalleryComponent implements OnInit {
         }
         return false;
     }
+
 }

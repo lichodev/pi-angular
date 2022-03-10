@@ -16,7 +16,11 @@ export class WelcomePopUpComponent implements OnInit {
         private tknSvc: TokenService) { }
 
     ngOnInit(): void {
-        this.tip = this.tipSvc.getWelcomeTip();
+        this.tipSvc.getWelcomeTip().subscribe( tip => {
+            let path = 'data:image/jpeg;base64,' + tip.image;
+            tip.image = path;
+            this.tip = tip;
+        })
     }
 
     saveSeen() {

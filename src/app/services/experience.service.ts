@@ -1,7 +1,9 @@
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { BASE_URL } from 'src/environments/environment.prod';
+import { MatDialog } from '@angular/material/dialog';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { BASE_URL, ERROR_CLASS, SAVED_CHANGES, SAVED_EXPERIENCE, SAVE_ERROR, SUCCESS_CLASS } from 'src/environments/environment.prod';
+import { FastNoteComponent } from '../common/fast-note/fast-note.component';
 import { Experience } from '../models/experience';
 import { TokenService } from './token.service';
 
@@ -74,11 +76,12 @@ export class ExperienceService {
     image: File = new File([], "file");
 
     constructor(private http: HttpClient,
-        private tknSvc: TokenService) { }
+        private tknSvc: TokenService,
+        private matDialog: MatDialog,) { }
 
     get(): Observable<Experience[]> {
         let url;
-        if(this.tknSvc.getToken()) url = URL_ADMIN;
+        if (this.tknSvc.getToken()) url = URL_ADMIN;
         else url = URL;
         return this.http.get<Experience[]>(url);
     }
@@ -97,6 +100,25 @@ export class ExperienceService {
         this.experience = e;
         this.image = img;
     }
+
+    ok() {
+        this.post()
+            .subscribe(r => {
+                this.showResult(this.getSuccess(this.getSuccessMsg(false)));
+            },
+            err => {
+                this.showResult(this.getError());
+            });
+    }
+
+    /**
+     * 
+     * @returns {
+       
+      },
+      err => {
+      }
+     */
 
     post(): Observable<HttpEvent<String>> {
         let data: FormData = new FormData;
@@ -123,22 +145,77 @@ export class ExperienceService {
     confirm() {
         if (this.experience.status == 1) {
             this.put()
-            .subscribe(r => {
-                console.log(r)
-            })
+                .subscribe(r => {
+                    this.showResult(this.getFormatResponseString(r.toString(), this.getSuccessMsg(true)));
+                })
         } else {
             this.delete()
-            .subscribe(r => {
-                console.log(r)
-            })
+                .subscribe(r => {
+                    this.showResult(this.getFormatResponseString(r.toString(), this.getSuccessMsg(true)));
+                })
         }
     }
 
     delete(): Observable<boolean> {
-       return this.http.delete<boolean>(URL + '/' + this.experience.id);
+        return this.http.delete<boolean>(URL + '/' + this.experience.id);
     }
 
     put(): Observable<boolean> {
         return this.http.put<boolean>(URL + '/' + this.experience.id, this.experience);
+    }
+
+
+    showResult(result: any) {
+        this.matDialog.open(FastNoteComponent, {
+            data: {
+                response: result.response,
+                class: result.className
+            }
+        })
+    }
+
+    getSuccessMsg(admin: boolean): String {
+        if (admin) {
+            return SAVED_CHANGES;
+        }
+        return SAVED_EXPERIENCE;
+    }
+
+    getFormatResponseEvent(result: HttpEvent<String>, success: String): any {
+        if (result.type.toString() == "true") {
+            return {
+                response: success,
+                className: SUCCESS_CLASS,
+            }
+        }
+        else {
+            return {
+                response: SAVE_ERROR,
+                className: ERROR_CLASS,
+            }
+        }
+    }
+
+    getFormatResponseString(result: String, success: String): any {
+        if (result == "true") {
+            return this.getSuccess(success);
+        }
+        else {
+            return this.getError();
+        }
+    }
+
+    getSuccess(success: String): any {
+        return {
+            response: success,
+            className: SUCCESS_CLASS,
+        }
+    }
+
+    getError(): any {
+        return {
+            response: SAVE_ERROR,
+            className: ERROR_CLASS,
+        }
     }
 }

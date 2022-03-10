@@ -50,6 +50,10 @@ export class QueriesUserComponent implements OnInit {
 
     ngOnInit(): void {
         this.tabSvc.setSelected("CONSULTAS");
+        this.initForm();
+    }
+    
+    initForm() {
         this.queryForm = this.fb.group({
             name: [null, Validators.required],
             lastname: [null, Validators.required],
@@ -61,7 +65,7 @@ export class QueriesUserComponent implements OnInit {
 
     openConfirmPopUp(action: string): void {
         let object: string = "consulta";
-        this.matDialog.open(ConfirmPopUpComponent, {
+        const dialog = this.matDialog.open(ConfirmPopUpComponent, {
             data: {
                 action: action,
                 object: object,
@@ -69,6 +73,12 @@ export class QueriesUserComponent implements OnInit {
                 service: this.querySvc,
             }
         });
+
+        dialog.afterClosed().subscribe(data => {
+            if (data) {
+                this.initForm();
+            }
+        })
     }
 
     send(): void {

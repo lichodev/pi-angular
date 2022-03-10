@@ -21,6 +21,10 @@ export class JoinUserComponent implements OnInit {
   
     ngOnInit(): void {
         this.tabSvc.setSelected("QUIERO SER PARTE");
+        this.initForm();
+    }
+    
+    initForm() {
         this.requestForm = this.fb.group({
           name: [null, Validators.required],
           lastname: [null, Validators.required],
@@ -33,7 +37,7 @@ export class JoinUserComponent implements OnInit {
   
     openConfirmPopUp(action: string): void {
       let object: string = "solicitud";
-      this.matDialog.open(ConfirmPopUpComponent, {
+      const dialog = this.matDialog.open(ConfirmPopUpComponent, {
           data: {
               action: action,
               object: object,
@@ -41,6 +45,12 @@ export class JoinUserComponent implements OnInit {
               service: this.requestSvc,
           }
       });
+
+      dialog.afterClosed().subscribe(data => {
+          if (data) {
+              this.initForm();
+          }
+    });
   }
   
   

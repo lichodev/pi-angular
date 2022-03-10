@@ -38,20 +38,12 @@ export class RemindersComponent implements OnInit {
     }
 
     openSingleShow(id: number) {
-        this.reminderSvc.getById(id)
-            .subscribe(r => {
-                let path = 'data:image/jpeg;base64,' + r.image; 
-                r.image = path;
-                let reminder: Reminder = r;
-                console.log(reminder)
-                this.matDialog.open(ImagePopUpComponent, {
-                    data: {
-                        id: id,
-                        poll: true,
-                        reminder: reminder,
-                    }
-                })
-            })
+        this.matDialog.open(ImagePopUpComponent, {
+            data: {
+                id: id,
+                poll: true,
+            }
+        })
     }
 
     onFileChange(event: any) {

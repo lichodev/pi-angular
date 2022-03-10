@@ -5,5 +5,5 @@ export interface Query {
     email: string;
     phone: string;
     text: string;
-    status: number;
+    replied: boolean;
 }

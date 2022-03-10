@@ -1,9 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { ExperienceService } from 'src/app/services/experience.service';
-import { QueryService } from 'src/app/services/query.service';
-import { RequestService } from 'src/app/services/request.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-confirm-pop-up',
@@ -21,8 +17,7 @@ export class ConfirmPopUpComponent implements OnInit {
     timer: any;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-        private router: Router,
-        private requestSvc: RequestService) {
+    public dialogRef: MatDialogRef<ConfirmPopUpComponent>,) {
         this.action = data.action;
         this.object = data.object;
         this.send = data.send;
@@ -38,20 +33,21 @@ export class ConfirmPopUpComponent implements OnInit {
 
     post(): void {
         if (this.send) {
-            this.requestSvc.post()
-            .subscribe(r => {
-                console.log(r)
-                
-            })
+            this.service.ok();
         } else if (this.admin) {
             this.service.confirm();
+        } else {
+            this.data.reload = false;
         }
+        this.timer = setTimeout(() => {
+            this.dialogRef.close();
+        })
     }
 
     cancel(): void {
         if (!this.send && !this.admin) {
             this.service.clear();
-            location.reload();
+            this.data.reload = true;
         }
     }
 

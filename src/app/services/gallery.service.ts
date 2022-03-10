@@ -13,8 +13,12 @@ export class GalleryService {
 
     constructor(private http: HttpClient) { }
 
-    get(): Observable<ImageResponse[]> {
-        return this.http.get<ImageResponse[]>(URL);
+    get(): Observable<GalleryImage[]> {
+        return this.http.get<GalleryImage[]>(URL);
+    }
+
+    getById(id: number): Observable<GalleryImage> {
+        return this.http.get<GalleryImage>(URL + "/" + id);
     }
 
     post(imgData: GalleryImage, img: File): Observable<HttpEvent<String>> {

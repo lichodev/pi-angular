@@ -5,9 +5,9 @@ import { Query } from 'src/app/models/query';
 import { QueryService } from 'src/app/services/query.service';
 
 @Component({
-  selector: 'app-queries-admin',
-  templateUrl: './queries-admin.component.html',
-  styleUrls: ['./queries-admin.component.scss']
+    selector: 'app-queries-admin',
+    templateUrl: './queries-admin.component.html',
+    styleUrls: ['./queries-admin.component.scss']
 })
 export class QueriesAdminComponent implements OnInit {
 
@@ -15,32 +15,41 @@ export class QueriesAdminComponent implements OnInit {
     displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'question', 'status', 'actions'];
     dataSource = this.queries;
 
-  constructor(private querySvc: QueryService,
-    private matDialog: MatDialog) { }
+    constructor(private querySvc: QueryService,
+        private matDialog: MatDialog) { }
 
-  ngOnInit(): void {
-      this.querySvc.get().subscribe(q => {
-          this.queries = q;
-          this.dataSource = this.queries;
-      })
-  }
+    ngOnInit(): void {
+        this.get();
+    }
 
-  openConfirmPopUp(action: string): void {
-    let object: string = "pregunta";
-    this.matDialog.open(ConfirmPopUpComponent, {
-        data: {
-            action: action,
-            object: object,
-            send: false,
-            admin: true,
-            service: this.querySvc,
-        }
-    });
-}
+    get() {
+        this.querySvc.get().subscribe(q => {
+            this.queries = q;
+            this.dataSource = this.queries;
+        })
 
-agree(id: number) {
-    this.querySvc.agree(id);
-    this.openConfirmPopUp("marcar como respondida");
-}
+    }
+
+    openConfirmPopUp(action: string): void {
+        let object: string = "pregunta";
+        const dialog = this.matDialog.open(ConfirmPopUpComponent, {
+            data: {
+                action: action,
+                object: object,
+                send: false,
+                admin: true,
+                service: this.querySvc,
+            }
+        });
+
+        dialog.afterClosed().subscribe(result => {
+            this.get();
+        });
+    }
+
+    agree(id: number) {
+        this.querySvc.agree(id);
+        this.openConfirmPopUp("marcar como respondida");
+    }
 
 }

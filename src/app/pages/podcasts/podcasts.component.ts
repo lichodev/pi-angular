@@ -2,6 +2,7 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { FastNoteComponent } from 'src/app/common/fast-note/fast-note.component';
 import { PodcastFormComponent } from 'src/app/common/podcast-form/podcast-form.component';
 import { Podcast } from 'src/app/models/podcast';
 import { AuthService } from 'src/app/services/auth.service';
@@ -59,7 +60,7 @@ export class PodcastsComponent implements OnInit {
 
         dialog.afterClosed().subscribe(result => {
             this.getPodcasts();
+           
         });
     }
-
 }

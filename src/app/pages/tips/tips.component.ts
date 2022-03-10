@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { FastNoteComponent } from 'src/app/common/fast-note/fast-note.component';
 import { TipFormComponent } from 'src/app/common/tip-form/tip-form.component';
 import { Tip } from 'src/app/models/tip';
 import { AuthService } from 'src/app/services/auth.service';
@@ -52,6 +53,5 @@ export class TipsComponent implements OnInit {
             this.getTips();
         });
     }
-
 
 }

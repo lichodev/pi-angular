@@ -5,9 +5,9 @@ import { Request } from 'src/app/models/request';
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
-  selector: 'app-join-admin',
-  templateUrl: './join-admin.component.html',
-  styleUrls: ['./join-admin.component.scss']
+    selector: 'app-join-admin',
+    templateUrl: './join-admin.component.html',
+    styleUrls: ['./join-admin.component.scss']
 })
 export class JoinAdminComponent implements OnInit {
 
@@ -15,32 +15,40 @@ export class JoinAdminComponent implements OnInit {
     displayedColumns: string[] = ['name', 'lastname', 'email', 'phone', 'why', 'how', 'status', 'actions'];
     dataSource = this.requests;
 
-  constructor(private requestSvc: RequestService,
-    private matDialog: MatDialog) { }
+    constructor(private requestSvc: RequestService,
+        private matDialog: MatDialog) { }
 
-  ngOnInit(): void {
-      this.requestSvc.get().subscribe(r => {
-          this.requests = r;
-          this.dataSource = this.requests;
-      })
-  }
+    ngOnInit(): void {
+        this.get();
+    }
 
-  openConfirmPopUp(action: string): void {
-    let object: string = "solicitud";
-    this.matDialog.open(ConfirmPopUpComponent, {
-        data: {
-            action: action,
-            object: object,
-            send: false,
-            admin: true,
-            service: this.requestSvc,
-        }
-    });
-}
+    get() {
+        this.requestSvc.get().subscribe(r => {
+            this.requests = r;
+            this.dataSource = this.requests;
+        })
+    }
 
-agree(id: number) {
-    this.requestSvc.agree(id);
-    this.openConfirmPopUp("marcar como respondida");
-}
+    openConfirmPopUp(action: string): void {
+        let object: string = "solicitud";
+        const dialog = this.matDialog.open(ConfirmPopUpComponent, {
+            data: {
+                action: action,
+                object: object,
+                send: false,
+                admin: true,
+                service: this.requestSvc,
+            }
+        });
+
+        dialog.afterClosed().subscribe(data => {
+            this.get();
+        });
+    }
+
+    agree(id: number) {
+        this.requestSvc.agree(id);
+        this.openConfirmPopUp("marcar como respondida");
+    }
 
 }
