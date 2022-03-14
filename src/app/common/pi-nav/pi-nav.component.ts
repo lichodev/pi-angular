@@ -16,6 +16,7 @@ export class PiNavComponent implements OnInit {
 
     selected: string = "";
     showOptions: boolean = false;
+    opened: boolean = false;
 
     constructor(private tabSvc: PiTabService,
         private tknSvc: TokenService) { }
@@ -48,4 +49,7 @@ export class PiNavComponent implements OnInit {
         this.hideOptions();
     }
 
+    toggleOpened() {
+        this.opened = !this.opened;
+    }
 }

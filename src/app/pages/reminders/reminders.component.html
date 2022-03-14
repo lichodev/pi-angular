@@ -1,4 +1,4 @@
-  <mat-grid-list cols="3" rowHeight="3:1">
+  <mat-grid-list cols="{{mybreakpoint}}" rowHeight="1:0.5" (window:resize)="giveSize($event)">
     <img *ngFor="let r of reminders" [src]="r.image" alt="" (click)="openSingleShow(r.id)">
   </mat-grid-list>
 

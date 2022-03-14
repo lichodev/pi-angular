@@ -2,6 +2,7 @@ footer {
     background-image: url("../../../assets/backgrounds/footer-background.png");
     background-size: cover;
     height: 25vh;
+    padding-bottom: 1%;
 }
 .logos {
     display: flex;
@@ -9,12 +10,40 @@ footer {
 }
 .logo {
     width: 15rem;
+    height: fit-content;
     margin-top: 7vh;
 }
 .dev {
     text-align: center;
-    margin-top: 1.8%;
+    margin-top: 1.5%;
 }
 .dev p {
-    font-size: larger;
+    color: var(--pi-white);    
+    font-size: x-large;
+}
+.dev a {
+    color: var(--pi-white);
+    text-decoration: none;
+}
+.dev a:hover {
+    font-family: linotteBold, sans-serif;
+    
+}
+
+@media (max-width: 700px) {
+    footer {
+        height: auto;
+        padding-bottom: 8%;
+    }
+    .logos {
+        display: block;
+        justify-content: space-around;
+        text-align: center;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    footer {
+        padding-bottom: 2%;
+    }
 }

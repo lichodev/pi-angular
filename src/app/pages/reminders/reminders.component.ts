@@ -16,6 +16,7 @@ export class RemindersComponent implements OnInit {
     reminders: Reminder[] =[];
     reminderForm!: FormGroup;
     image!: File;
+    mybreakpoint!: number;
 
     constructor(private tabSvc: PiTabService,
         private reminderSvc: ReminderService,
@@ -24,6 +25,7 @@ export class RemindersComponent implements OnInit {
 
     ngOnInit(): void {
         this.tabSvc.setSelected("INFO");
+        this.handleSize(window.innerWidth);
         this.reminderForm = this.fb.group({
             since: [null, Validators.required],
             until: [null, Validators.required],
@@ -58,6 +60,16 @@ export class RemindersComponent implements OnInit {
         .subscribe(r=> {
             console.log(r);
         })
+    }
+
+    handleSize(width: number) {
+        if (width <= 700) this.mybreakpoint = 1;
+        else if (width <= 900) this.mybreakpoint = 2;
+        else this.mybreakpoint = 3;
+    }
+
+    giveSize(event: any) {
+        this.handleSize(event.target.innerWidth);
     }
 
 }

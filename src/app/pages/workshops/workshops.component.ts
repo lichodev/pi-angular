@@ -23,6 +23,7 @@ export class WorkshopsComponent implements OnInit, PipeTransform {
     workshops: Workshop[] = [];
     video!: File;
     workshopForm!: FormGroup;
+    loading: boolean = true;
 
     constructor(private tabSvc: PiTabService,
         private workshopSvc: WorkshopService,
@@ -36,6 +37,7 @@ export class WorkshopsComponent implements OnInit, PipeTransform {
                 w.video = this.transform('data:video/mp4;base64,' + w.video);
             });
             this.workshops = workshops;
+            this.loading = false;
         })
         this.workshopForm = this.fb.group({
             title: [null, Validators.required],

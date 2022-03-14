@@ -18,3 +18,23 @@ mat-card {
 video {
     width: 80%;
 }
+.spinner {
+    width: 100%;
+    background-color: var(--vetbook-light-primary);
+    position: absolute;
+    z-index: 999;
+    filter: opacity(0.8);
+    text-align: center;
+    vertical-align: center;
+}
+
+mat-spinner {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 15%;
+}
+
+.spinner ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: var(--pi-light-green);
+}

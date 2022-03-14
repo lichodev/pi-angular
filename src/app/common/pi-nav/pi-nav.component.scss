@@ -7,7 +7,7 @@ nav {
     z-index: 9999;
     background-image: url(../../../assets/background-nav.png);
 }
-ul {
+.nav-list {
     display: flex;
     position: fixed;
     right: 0.5rem;
@@ -16,7 +16,6 @@ ul {
 }
 
 .nav-item {
-   
     padding: 1rem 1rem 0;
     height: 35px;
     //color: var(--pi-white);
@@ -34,7 +33,7 @@ ul {
     color: var(--pi-light-green);
 }
 .select {
-    background-color: var(--pi-light-green);    
+    background-color: var(--pi-light-green);
     border-radius: 5px;
 }
 .option {
@@ -47,5 +46,33 @@ ul {
 .option:hover {
     background-color: var(--pi-light-purple);
 }
+.burger-menu {
+    display: none;
+}
 
-
+@media (max-width: 700px) {
+    .burger-menu {
+        display: block;
+        left: 10px;
+        width: var(--pi-nav-height);
+    }
+    .nav-list {
+        display: none;
+    }
+    .nav-list-opened {
+        display: block;
+        position: fixed;
+        left: -2.5rem;
+        top: var(--pi-nav-height);
+        margin: 0;
+        background-color: var(--pi-light-green);
+        padding-bottom: 10px;
+    }
+    .nav-item {
+        height: auto;
+    }
+    .option {
+        background-color: var(--pi-light-purple);
+        border-radius: 0;
+    }
+}

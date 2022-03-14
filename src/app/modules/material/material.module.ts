@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatDividerModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatCardModule,
@@ -30,6 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatDividerModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class MaterialModule { }

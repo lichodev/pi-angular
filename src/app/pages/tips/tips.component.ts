@@ -17,6 +17,7 @@ export class TipsComponent implements OnInit {
 
     tips: Tip[] = [];
     timer: any;
+    mybreakpoint!: number;
 
     constructor(private tabSvc: PiTabService,
         private tipSvc: TipService,
@@ -26,6 +27,7 @@ export class TipsComponent implements OnInit {
 
     ngOnInit(): void {
         this.tabSvc.setSelected("INFO");
+        this.handleSize(window.innerWidth);
         this.getTips();
     }
 
@@ -52,6 +54,15 @@ export class TipsComponent implements OnInit {
         dialog.afterClosed().subscribe(result => {
             this.getTips();
         });
+    }
+    handleSize(width: number) {
+        if (width <= 700) this.mybreakpoint = 1;
+        else if (width <= 900) this.mybreakpoint = 2;
+        else this.mybreakpoint = 3;
+    }
+
+    giveSize(event: any) {
+        this.handleSize(event.target.innerWidth);
     }
 
 }

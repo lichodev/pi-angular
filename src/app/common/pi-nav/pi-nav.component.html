@@ -1,21 +1,71 @@
+
 <nav>
-    <img src="" alt="">
-    <ul>
-       <div class="nav-item" [class]="getSelected() == 'INICIO' ? 'selected' : 'nav-item'" [routerLink]="['/']" (click)="hideOptions()">INICIO</div>
-       <div class="nav-item" [class]="getSelected() == 'INFO' ? 'selected' : 'nav-item'" (click)="toggleShowOptions()">
-        INFORMACIÓN
-           <div [class]="showOptions ? 'select' : 'hide'">
-               <div class="option" [routerLink]="['tips']">TIPS</div>
-               <div class="option" [routerLink]="['recordatorios']">RECORDATORIOS</div>
-               <div class="option" [routerLink]="['podcasts']">PODCASTS</div>
-               <div class="option" [routerLink]="['talleres']">TALLERES</div>
-               <div class="option" [routerLink]="['experiencias']">EXPERIENCIAS</div>
-               <div class="option" [routerLink]="['galeria']">GALERIA</div>
-           </div>
+    <img src="../../../assets/actions/menu.png" class="burger-menu" alt="" (click)="toggleOpened()">
+    <ul [class]="opened ? 'nav-list-opened' : 'nav-list'">
+        <div class="nav-item" [class]="getSelected() == 'INICIO' ? 'selected' : 'nav-item'" [routerLink]="['/']"
+            (click)="hideOptions()">INICIO</div>
+        <div class="nav-item" [class]="getSelected() == 'INFO' ? 'selected' : 'nav-item'" (click)="toggleShowOptions()">
+            INFORMACIÓN
+            <div [class]="showOptions ? 'select' : 'hide'">
+                <div class="option" [routerLink]="['tips']">TIPS</div>
+                <div class="option" [routerLink]="['recordatorios']">RECORDATORIOS</div>
+                <div class="option" [routerLink]="['podcasts']">PODCASTS</div>
+                <div class="option" [routerLink]="['talleres']">TALLERES</div>
+                <div class="option" [routerLink]="['experiencias']">EXPERIENCIAS</div>
+                <div class="option" [routerLink]="['galeria']">GALERIA</div>
+            </div>
         </div>
-       <div class="nav-item" [class]="getSelected() == 'CONSULTAS' ? 'selected' : 'nav-item'" [routerLink]="['consultas']" (click)="hideOptions()">CONSULTAS</div>
-       <div class="nav-item" [class]="getSelected() == 'QUIERO SER PARTE' ? 'selected' : 'nav-item'" [routerLink]="['sumarme']" (click)="hideOptions()">QUIERO SER PARTE</div>
-       <div class="nav-item" *ngIf="!isLogged()" [class]="getSelected() == 'INICIAR SESIÓN' ? 'selected' : 'nav-item'" [routerLink]="['iniciar-sesion']" (click)="hideOptions()">INICIAR SESIÓN</div>
-       <div class="nav-item" *ngIf="isLogged()" [routerLink]="['/']" (click)="logout()">CERRAR SESIÓN</div>
+        <div class="nav-item" [class]="getSelected() == 'CONSULTAS' ? 'selected' : 'nav-item'"
+            [routerLink]="['consultas']" (click)="hideOptions()">CONSULTAS</div>
+        <div class="nav-item" [class]="getSelected() == 'QUIERO SER PARTE' ? 'selected' : 'nav-item'"
+            [routerLink]="['sumarme']" (click)="hideOptions()">QUIERO SER PARTE</div>
+        <div class="nav-item" *ngIf="!isLogged()" [class]="getSelected() == 'INICIAR SESIÓN' ? 'selected' : 'nav-item'"
+            [routerLink]="['iniciar-sesion']" (click)="hideOptions()">INICIAR SESIÓN</div>
+        <div class="nav-item" *ngIf="isLogged()" [routerLink]="['/']" (click)="logout()">CERRAR SESIÓN</div>
     </ul>
 </nav>
+
+<!--
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="push" [(opened)]="opened">
+        <mat-nav-list class="menu">
+            <mat-list-item class="nav-item" [class]="getSelected() == 'INICIO' ? 'selected' : 'nav-item'"
+                [routerLink]="['/']" (click)="hideOptions()">
+                INICIO
+            </mat-list-item>
+            <mat-list-item class="nav-item" [class]="getSelected() == 'INFO' ? 'selected' : 'nav-item'"
+                (click)="toggleShowOptions()">
+                INFORMACIÓN
+            </mat-list-item>
+            <mat-list-item [class]="showOptions ? 'select' : 'hide'">
+                <div>
+                    <div class="option" [routerLink]="['tips']">TIPS</div>
+                    <div class="option" [routerLink]="['recordatorios']">RECORDATORIOS</div>
+                    <div class="option" [routerLink]="['podcasts']">PODCASTS</div>
+                    <div class="option" [routerLink]="['talleres']">TALLERES</div>
+                    <div class="option" [routerLink]="['experiencias']">EXPERIENCIAS</div>
+                    <div class="option" [routerLink]="['galeria']">GALERIA</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item class="nav-item" [class]="getSelected() == 'CONSULTAS' ? 'selected' : 'nav-item'"
+                [routerLink]="['consultas']" (click)="hideOptions()">
+                CONSULTAS
+            </mat-list-item>
+            <mat-list-item class="nav-item" [class]="getSelected() == 'QUIERO SER PARTE' ? 'selected' : 'nav-item'"
+                [routerLink]="['sumarme']" (click)="hideOptions()">
+                QUIERO SER PARTE
+            </mat-list-item>
+            <mat-list-item>
+                <div class="nav-item" *ngIf="!isLogged()"
+                    [class]="getSelected() == 'INICIAR SESIÓN' ? 'selected' : 'nav-item'"
+                    [routerLink]="['iniciar-sesion']" (click)="hideOptions()">INICIAR SESIÓN</div>
+                <div class="nav-item" *ngIf="isLogged()" [routerLink]="['/']" (click)="logout()">CERRAR SESIÓN</div>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button (click)="toggleOpened()">open</button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+-->
