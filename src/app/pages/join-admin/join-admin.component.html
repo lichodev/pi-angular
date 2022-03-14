@@ -7,42 +7,42 @@
         <!-- name Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell data-label="NOMBRE" *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
 
         <!-- lastname Column -->
         <ng-container matColumnDef="lastname">
             <th mat-header-cell *matHeaderCellDef> APELLIDO </th>
-            <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+            <td mat-cell data-label="APELLIDO" *matCellDef="let element"> {{element.lastname}} </td>
         </ng-container>
 
         <!-- email Column -->
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> EMAIL </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            <td mat-cell data-label="EMAIL" *matCellDef="let element"> {{element.email}} </td>
         </ng-container>
 
         <!-- phone Column -->
         <ng-container matColumnDef="phone">
             <th mat-header-cell *matHeaderCellDef> TELÉFONO </th>
-            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+            <td mat-cell data-label="TELÉFONO" *matCellDef="let element"> {{element.phone}} </td>
         </ng-container>
 
         <!-- question Column -->
         <ng-container matColumnDef="why">
             <th mat-header-cell *matHeaderCellDef> POR QUÉ </th>
-            <td mat-cell class="text" *matCellDef="let element"> {{element.why}} </td>
+            <td mat-cell data-label="POR QUÉ" class="text" *matCellDef="let element"> {{element.why}} </td>
         </ng-container>
 
         <ng-container matColumnDef="how">
             <th mat-header-cell *matHeaderCellDef> CÓMO </th>
-            <td mat-cell class="text" *matCellDef="let element"> {{element.how}} </td>
+            <td mat-cell data-label="CÓMO" class="text" *matCellDef="let element"> {{element.how}} </td>
         </ng-container>
 
         <!-- Action Column -->
         <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef> ESTADO </th>
-            <td mat-cell *matCellDef="let element">   
+            <td mat-cell data-label="ESTADO" *matCellDef="let element">   
                 <span *ngIf="element.replied">RESPONDIDA</span>
                 <span *ngIf="!element.replied">SIN RESPONDER</span>
             </td>

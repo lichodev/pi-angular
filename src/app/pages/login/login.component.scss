@@ -1,5 +1,5 @@
 .content {
-    background-image: url("../../../assets/backgrounds/Screenshot\ from\ 2022-01-17\ 14-26-57.png");
+    background-image: url("../../../assets/backgrounds/login.png");
     background-size: cover;
     height: 90vh;
     padding: 5% 0 5% 0;
@@ -20,4 +20,19 @@ mat-card {
 }
 form {
     margin-top: 2em;
+}
+
+@media (max-width: 700px) {
+    .content {
+        background-image: url("../../../assets/backgrounds/login-mobile.png");
+        background-position-x: center;
+        padding-top: 2%;
+    }
+    mat-card {
+        flex-basis: 85%;
+        height: 32vh;
+    }
+    form {
+        margin-top: 1em;
+    }
 }

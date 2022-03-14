@@ -44,3 +44,24 @@ textarea {
 label {
     margin-right: 5px;
 }
+
+@media (max-width: 700px) {
+    ul {
+        display: block;
+        justify-content: space-around;
+        text-align: center;
+        padding: 0;
+    }
+    .form {
+        flex-basis: 90vw;
+    }
+    .inputs {
+        flex-direction: column;
+    }
+    .input-group {
+        text-align: start;
+    }
+    .input {
+        display: contents;
+    }
+}

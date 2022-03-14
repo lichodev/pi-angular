@@ -36,3 +36,9 @@ img {
     object-fit: cover;
 }
 
+@media (max-width: 700px) {
+    .card-primera-infancia {
+        width: 20vw;
+        flex-basis: 90vw;
+    }
+}

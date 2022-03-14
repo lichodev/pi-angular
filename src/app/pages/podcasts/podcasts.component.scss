@@ -28,3 +28,18 @@ audio {
 img {
     width:7rem;
 }
+
+@media (max-width: 700px) {
+    img {
+        width:3rem;
+    }
+    .podcasts {
+        width: 90%;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    img {
+        width:6rem;
+    }   
+}

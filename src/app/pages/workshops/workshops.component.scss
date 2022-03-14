@@ -38,3 +38,9 @@ mat-spinner {
 .mat-spinner circle {
     stroke: var(--pi-light-green);
 }
+
+@media (max-width: 700px) {
+    .workshops {
+        width: 90%;
+    }
+}

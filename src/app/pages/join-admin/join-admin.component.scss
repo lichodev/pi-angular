@@ -28,3 +28,40 @@ td.mat-cell {
     filter: contrast(0.5);
     cursor: pointer;
 }
+@media (max-width: 700px) {
+    th.mat-header-cell, tr.mat-header-row {
+        display: none;
+    }
+    table,
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+    tr.mat-row {
+        margin-top: 3%;
+        height: auto;
+        width: 83vw;
+        margin-left: 5%;
+    }
+    td {
+        text-align: right;
+        text-align: right;
+        position: relative;
+    }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        text-align: left;
+    }
+    .text {
+        width: auto;
+    }
+    td.mat-cell:first-of-type {
+        padding-left: 0;
+    }
+}

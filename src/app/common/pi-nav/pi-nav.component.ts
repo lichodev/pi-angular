@@ -37,6 +37,7 @@ export class PiNavComponent implements OnInit {
         if(this.showOptions) {
             this.showOptions = false;
         }
+        this.opened = false;
     }
 
     isLogged(): boolean {

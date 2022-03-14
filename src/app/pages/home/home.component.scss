@@ -1,3 +1,5 @@
+
+  
 img {
     width: 100%;
 }
@@ -9,6 +11,7 @@ img {
     margin: -4px;
 }
 .description {
+    text-align: justify;
     background-color: white;
     margin: 5% 15%;
     width: 70%;
@@ -20,4 +23,19 @@ img {
     font-size: 1.5rem;
     line-height: 2rem;
     color: var(--pi-purple);
+}
+
+.description h3 {
+    font-size: 2rem;
+}
+
+ul li {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .description {
+        margin: 5% 5%;
+        width: 90%;
+    }
 }

@@ -38,3 +38,18 @@ textarea {
 label {
     margin-right: 5px;
 }
+
+@media (max-width: 700px) {
+    .form {
+        flex-basis: 90vw;
+    }
+    .inputs {
+        flex-direction: column;
+    }
+    .input-group {
+        text-align: start;
+    }
+    .input {
+        display: contents;
+    }
+}

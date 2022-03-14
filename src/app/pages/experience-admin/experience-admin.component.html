@@ -7,19 +7,19 @@
         <!-- Experience Column -->
         <ng-container matColumnDef="experience">
             <th mat-header-cell *matHeaderCellDef> EXPERIENCIA </th>
-            <td mat-cell class="text" *matCellDef="let element"> {{element.text}} </td>
+            <td mat-cell data-label="EXPERIENCIA" class="text" *matCellDef="let element"> {{element.text}} </td>
         </ng-container>
 
         <!-- Image Column -->
         <ng-container matColumnDef="image">
             <th mat-header-cell *matHeaderCellDef> IMAGEN </th>
-            <td mat-cell *matCellDef="let element"><img  src="{{element.image}}" alt=""></td>
+            <td mat-cell data-label="IMAGEN" *matCellDef="let element"><img  src="{{element.image}}" alt=""></td>
         </ng-container>
 
         <!-- Action Column -->
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> ACCIONES </th>
-            <td mat-cell *matCellDef="let element"> 
+            <td mat-cell data-label="ACCIONES" *matCellDef="let element"> 
                 <img src="../../../assets/actions/no.svg" (click)="reject(element.id)" class="icon" alt="">    
                 <img src="../../../assets/actions/yes.svg" (click)="agree(element.id)" class="icon" alt="">    
             </td>
