@@ -23,7 +23,7 @@
                         </div>
                         <div class="input">
                             <label for="phone">Teléfono</label>
-                            <input formControlName="phone" type="text" id="phone">
+                            <input formControlName="phone" type="text" id="phone" (keyup)="readKey($event)">
                         </div>
                     </div>
                 </div>
@@ -31,6 +31,7 @@
                 <textarea formControlName="why" name="" id="why" cols="30" rows="10"></textarea>
                 <label for="how">Contanos cómo pensás que podrías colaborar:</label>
                 <textarea formControlName="how" name="" id="how" cols="30" rows="10"></textarea>
+                <br><span>{{message}}</span><br>
                 <button class="btn cancel" mat-raised-button (click)="openConfirmPopUp('cancelar el envio de')">Cancelar</button>
                 <button class="btn send" mat-raised-button (click)="send()">Enviar</button>
             </form>

@@ -1,7 +1,11 @@
-<div class="image">
-    <img src="{{tip.image}}" [routerLink]="['../tip', tip.id]" [mat-dialog-close]="true" alt="">
-</div>
-<div class="buttons">
-    <button class="btn cancel" mat-raised-button (click)="saveSeen()" [mat-dialog-close]="true">Cerrar</button>
-    <button class=" btn send" mat-raised-button (click)="saveSeen()" [routerLink]="['../tip', tip.id]" [mat-dialog-close]="true">Leer más</button>
+<div class="pop-up">
+    <div class="image">
+        <!-- <img src="{{tip.image}}" [routerLink]="['../tip', tip.id]" [mat-dialog-close]="true" alt="">-->
+        <h1>{{tip.title}}</h1>
+    </div>
+    <div class="buttons">
+        <button class="btn cancel" mat-raised-button (click)="saveSeen()" [mat-dialog-close]="true">Cerrar</button>
+        <button class=" btn send" mat-raised-button (click)="saveSeen()" [routerLink]="['../tip', tip.id]"
+            [mat-dialog-close]="true">Leer más</button>
+    </div>
 </div>

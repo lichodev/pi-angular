@@ -7,12 +7,12 @@
         <div class="nav-item" [class]="getSelected() == 'INFO' ? 'selected' : 'nav-item'" (click)="toggleShowOptions()">
             INFORMACIÓN
             <div [class]="showOptions ? 'select' : 'hide'">
-                <div class="option" [routerLink]="['tips']" (click)="toggleOpened()">TIPS</div>
-                <div class="option" [routerLink]="['recordatorios']" (click)="toggleOpened()">RECORDATORIOS</div>
-                <div class="option" [routerLink]="['podcasts']" (click)="toggleOpened()">PODCASTS</div>
-                <div class="option" [routerLink]="['talleres']" (click)="toggleOpened()">TALLERES</div>
-                <div class="option" [routerLink]="['experiencias']" (click)="toggleOpened()">EXPERIENCIAS</div>
-                <div class="option" [routerLink]="['galeria']" (click)="toggleOpened()">GALERIA</div>
+                <div class="option" [routerLink]="['tips']" (click)="!showOptions">TIPS</div>
+                <div class="option" [routerLink]="['recordatorios']" (click)="!showOptions">RECORDATORIOS</div>
+                <div class="option" [routerLink]="['podcasts']" (click)="!showOptions">PODCASTS</div>
+                <div class="option" [routerLink]="['talleres']" (click)="!showOptions">TALLERES</div>
+                <div class="option" [routerLink]="['experiencias']" (click)="!showOptions">EXPERIENCIAS</div>
+                <div class="option" [routerLink]="['galeria']" (click)="!showOptions">GALERIA</div>
             </div>
         </div>
         <div class="nav-item" [class]="getSelected() == 'CONSULTAS' ? 'selected' : 'nav-item'"

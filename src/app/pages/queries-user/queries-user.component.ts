@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmPopUpComponent } from 'src/app/common/confirm-pop-up/confirm-pop-up.component';
 import { Contact } from 'src/app/models/contact';
+import { QuestionResponse } from 'src/app/models/query';
 import { PiTabService } from 'src/app/services/pi-tab.service';
 import { QueryService } from 'src/app/services/query.service';
+import { PRIVATE_DATA } from 'src/environments/environment.prod';
 
 const CONTACTS: Contact[] = [
     {
@@ -42,6 +44,8 @@ export class QueriesUserComponent implements OnInit {
 
     contacts: Contact[] = CONTACTS;
     queryForm!: FormGroup;
+    frequentQuestions: QuestionResponse[] = [];
+    message: String = PRIVATE_DATA;
 
     constructor(private tabSvc: PiTabService,
         private fb: FormBuilder,
@@ -51,6 +55,7 @@ export class QueriesUserComponent implements OnInit {
     ngOnInit(): void {
         this.tabSvc.setSelected("CONSULTAS");
         this.initForm();
+        this.getFrequentQuestions();
     }
     
     initForm() {
@@ -61,6 +66,10 @@ export class QueriesUserComponent implements OnInit {
             phone: [null, Validators.required],
             text: [null, Validators.required],
         })
+    }
+
+    getFrequentQuestions() {
+        this.querySvc.getResponses().subscribe(responses => this.frequentQuestions = responses);
     }
 
     openConfirmPopUp(action: string): void {
@@ -90,5 +99,9 @@ export class QueriesUserComponent implements OnInit {
         //BORRAR FORMULARIO
     }
 
-
+    readKey(event: any): void {
+        if (event.keyCode < 48 || event.keyCode > 57) {
+            event.target.value = this.queryForm.value.phone.slice(0, -1);
+        }
+    }
 }

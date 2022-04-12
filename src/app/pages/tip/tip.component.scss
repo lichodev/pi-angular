@@ -6,6 +6,8 @@
     margin: 2% 0 2% 15vw;
     padding: 2% 0;
     text-align: justify;
+    background-color: white;
+    border-radius: var(--pi-border-radius);
 }
 .text {
     width: 97%;
@@ -29,7 +31,6 @@ img {
     .tip {
         width: 90vw;
         margin-left: 5vw;
-        background-color: white;
     }
     img {
         width: 100%;
@@ -39,7 +40,8 @@ img {
         font-size: x-large;
     }
     .poll {
-        width: 50vw;
-        margin-left: 25vw;
+        width: 90vw;
+        margin-left: 5vw;
+        background-color: white;
     }
 }

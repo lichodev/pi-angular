@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmPopUpComponent } from 'src/app/common/confirm-pop-up/confirm-pop-up.component';
 import { Experience } from 'src/app/models/experience';
 import { ExperienceService } from 'src/app/services/experience.service';
+import { PENDING_DATA } from 'src/environments/environment.prod';
 
 @Component({
     selector: 'app-experience-user',
@@ -15,6 +16,7 @@ export class ExperienceUserComponent implements OnInit {
     experiences: Experience[] = [];
     experienceForm!: FormGroup;
     image : File = new File([], "");
+    message: String = PENDING_DATA;
 
     constructor(private experienceSvc: ExperienceService,
         private fb: FormBuilder,

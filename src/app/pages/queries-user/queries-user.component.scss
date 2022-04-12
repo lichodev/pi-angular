@@ -45,6 +45,19 @@ label {
     margin-right: 5px;
 }
 
+.btn {
+    margin-bottom: 2%;
+}
+
+.frequent-questions {
+    text-align: left;
+    padding-left: 5%;
+}
+
+.frequent-questions p{
+    padding-left: 2%;
+}
+
 @media (max-width: 700px) {
     ul {
         display: block;

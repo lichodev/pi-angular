@@ -4,10 +4,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { BASE_URL, ERROR_CLASS, SAVED_CHANGES, SAVED_MSG, SAVE_ERROR, SUCCESS_CLASS } from 'src/environments/environment.prod';
 import { FastNoteComponent } from '../common/fast-note/fast-note.component';
-import { Query } from '../models/query';
+import { Query, QueryResponse, QuestionResponse } from '../models/query';
 
 const QUERIES: Query[] = [];
 const URL = BASE_URL + '/questions';
+const URL_RESPONSE = BASE_URL + '/response';
 
 @Injectable({
     providedIn: 'root'
@@ -99,5 +100,17 @@ export class QueryService {
             return SAVED_CHANGES;
         }
         return SAVED_MSG;
+    }
+
+
+    // RESPONSES //
+
+    postResponse(response: QueryResponse): Observable<boolean> {
+        response.questionId = this.query.id;
+        return this.http.post<boolean>(URL_RESPONSE, response);
+    }
+
+    getResponses(): Observable<QuestionResponse[]> {
+        return this.http.get<QuestionResponse[]>(URL_RESPONSE);
     }
 }

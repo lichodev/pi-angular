@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmPopUpComponent } from 'src/app/common/confirm-pop-up/confirm-pop-up.component';
+import { ResponseFormComponent } from 'src/app/common/response-form/response-form.component';
 import { Query } from 'src/app/models/query';
 import { QueryService } from 'src/app/services/query.service';
 
@@ -44,7 +45,12 @@ export class QueriesAdminComponent implements OnInit {
 
         dialog.afterClosed().subscribe(result => {
             this.get();
+            this.openResponsePopUp();
         });
+    }
+
+    openResponsePopUp() {
+        this.matDialog.open(ResponseFormComponent);
     }
 
     agree(id: number) {

@@ -32,15 +32,24 @@
                         </div>
                         <div class="input">
                             <label for="phone">Teléfono</label>
-                            <input formControlName="phone" type="text" id="phone">
+                            <input formControlName="phone" type="text" id="phone" (keyup)="readKey($event)">
                         </div>
                     </div>
                 </div>
                 <label for="text">Escribí tu consulta:</label>
                 <textarea formControlName="text" name="" id="text" cols="30" rows="10"></textarea>
+                <br><span>{{message}}</span><br>
                 <button class="btn cancel" mat-raised-button (click)="openConfirmPopUp('cancelar')">Cancelar</button>
                 <button class="btn send" mat-raised-button (click)="send()">Enviar</button>
             </form>
+            <div class="form-header">
+                <h1>Preguntas frecuentes</h1>
+            </div>
+            <div *ngFor="let question of frequentQuestions" class="frequent-questions">
+                <h2>{{question.question}}</h2>
+                <p>{{question.response}}</p>
+                <mat-divider></mat-divider>
+            </div>
         </mat-card>
     </div>
 </div>

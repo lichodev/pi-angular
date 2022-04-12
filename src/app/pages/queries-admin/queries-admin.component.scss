@@ -3,7 +3,7 @@
     // background-color: var(--pi-light-yellow);
     padding: 3% 0 3% 0;
 }
-table mat-table {
+table.mat-table {
     width: 90%;
     text-align: center;
     border-radius: var(--pi-border-radius) !important;
@@ -37,6 +37,9 @@ td.mat-cell {
     tr,
     td {
         display: block;
+        width: 100%;
+    }
+    table.mat-table {
         width: 100%;
     }
     tr.mat-row {

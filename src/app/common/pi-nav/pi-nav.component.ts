@@ -17,6 +17,7 @@ export class PiNavComponent implements OnInit {
     selected: string = "";
     showOptions: boolean = false;
     opened: boolean = false;
+    timer: any;
 
     constructor(private tabSvc: PiTabService,
         private tknSvc: TokenService) { }
@@ -34,10 +35,11 @@ export class PiNavComponent implements OnInit {
     }
     
     hideOptions() {
-        if(this.showOptions) {
-            this.showOptions = false;
-        }
+        this.showOptions = false;
         this.opened = false;
+        this.timer = setInterval(()=>{
+        }, 10)
+        clearInterval(this.timer);
     }
 
     isLogged(): boolean {

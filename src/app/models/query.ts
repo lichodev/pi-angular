@@ -7,3 +7,13 @@ export interface Query {
     text: string;
     replied: boolean;
 }
+
+export interface QueryResponse {
+    text: string;
+    questionId: number | null;
+}
+
+export interface QuestionResponse {
+    question: string;
+    response: string;
+}

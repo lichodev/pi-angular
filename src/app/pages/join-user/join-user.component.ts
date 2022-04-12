@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmPopUpComponent } from 'src/app/common/confirm-pop-up/confirm-pop-up.component';
 import { PiTabService } from 'src/app/services/pi-tab.service';
 import { RequestService } from 'src/app/services/request.service';
+import { PRIVATE_DATA } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-join-user',
@@ -13,6 +14,7 @@ import { RequestService } from 'src/app/services/request.service';
 export class JoinUserComponent implements OnInit {
     
     requestForm!: FormGroup;
+    message: String = PRIVATE_DATA;
 
     constructor(private tabSvc: PiTabService,
       private fb: FormBuilder,
@@ -59,5 +61,10 @@ export class JoinUserComponent implements OnInit {
         this.openConfirmPopUp("enviar");
     }
   
+    readKey(event: any): void {
+        if (event.keyCode < 48 || event.keyCode > 57) {
+            event.target.value = this.requestForm.value.phone.slice(0, -1);
+        }
+    }
 
 }

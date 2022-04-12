@@ -1,4 +1,18 @@
 .image {
+    width: 35vw;
+    height: 35vh;
+    text-align: center;
+    background-image: url(../../../assets/backgrounds/0a6.jpeg);
+    background-size: contain;
+    border-radius: var(--pi-border-radius);
+    padding: 1% 0 5% 0;
+}
+.image h1 {
+    background-color: white;
+    font-size: xxx-large;
+    margin-left: 10%;
+    width: 80%;
+    height: 90%;
 }
 img {
     width: 35vw;
@@ -8,8 +22,22 @@ img {
     background: none;
 }
 
-
 .buttons {
     display: flex;
     justify-content: space-around;
+}
+
+@media (max-width: 700px) {
+    .image {
+        width: 70vw;
+        height: 20vh;
+        background-size: contain;
+    }
+    .image h1 {
+        font-size: x-large;
+        margin-left: 6%;
+        width: 85%;
+        height: 75%;
+        padding: 3%;
+    }
 }
