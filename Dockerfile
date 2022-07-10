@@ -4,7 +4,7 @@ FROM node:12-alpine
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN rm -r '/app/node_modules/'
+RUN rm '/app/node_modules/' -r
 RUN npm ci && npm run build
 
 # stage 2
