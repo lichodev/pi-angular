@@ -3,7 +3,6 @@
 FROM node:12-alpine
 WORKDIR /app
 COPY . .
-RUN rmdir '/app/node_modules/'
 RUN npm install
 RUN npm ci && npm run build
 
