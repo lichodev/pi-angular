@@ -1,7 +1,6 @@
 <div class="pop-up">
     <div class="image">
-        <!-- <img src="{{tip.image}}" [routerLink]="['../tip', tip.id]" [mat-dialog-close]="true" alt="">-->
-        <h1>{{tip.title}}</h1>
+        <img src="{{tip.image}}" [routerLink]="['../tip', tip.id]" [mat-dialog-close]="true" alt="">
     </div>
     <div class="buttons">
         <button class="btn cancel" mat-raised-button (click)="saveSeen()" [mat-dialog-close]="true">Cerrar</button>

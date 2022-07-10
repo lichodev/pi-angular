@@ -2,7 +2,7 @@ export const environment = {
   production: true
 };
 
-export const BASE_URL = "http://localhost:8080";
+export const BASE_URL = "http://localhost:18080";
 
 /* -- ERRORS -- */
 export const SAVE_ERROR: String = "No se pudo guardar. Verificá que todos los campos estén completos.";
