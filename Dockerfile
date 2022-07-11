@@ -4,6 +4,7 @@ FROM node:12-alpine
 WORKDIR /app
 COPY . .
 RUN npm install
+RUN chmod -R 777 /app/node_modules/
 RUN rm -R '/app/node_modules/'
 RUN npm ci && npm run build
 
