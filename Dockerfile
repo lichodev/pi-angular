@@ -8,7 +8,7 @@ RUN npm run build
 
 # stage 2
 FROM nginx:alpine
-COPY node/app/dist/primeraInfancia/ /usr/share/nginx/html
+COPY ./app/dist/primeraInfancia/ /usr/share/nginx/html
 EXPOSE 80
 
 
