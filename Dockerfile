@@ -1,13 +1,16 @@
 # stage 1
 
-FROM node:12-alpine
+FROM node:12-alpine 
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
 
 # stage 2
-
+ARG FILES=/app/dist/primeraInfancia
 FROM nginx:alpine
-COPY /dist/primeraInfancia /usr/share/nginx/html
+COPY ${FILES} /usr/share/nginx/html
 EXPOSE 80
+
+
+
