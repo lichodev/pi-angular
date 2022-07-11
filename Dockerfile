@@ -3,9 +3,10 @@
 FROM node:12-alpine
 WORKDIR /app
 COPY . .
-RUN npm ci
 RUN npm install
-RUN npm run build
+RUN chmod -R 777 /app/node_modules/
+RUN rm -R '/app/node_modules/*'
+RUN npm ci && npm run build
 
 # stage 2
 
