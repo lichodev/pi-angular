@@ -7,9 +7,8 @@ RUN npm install
 RUN npm run build
 
 # stage 2
-ARG FILES=/app/dist/primeraInfancia
 FROM nginx:alpine
-COPY ${FILES} /usr/share/nginx/html
+COPY --chown=node /app/dist/primeraInfancia/ /usr/share/nginx/html
 EXPOSE 80
 
 
