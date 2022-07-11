@@ -9,5 +9,7 @@ RUN npm run build
 # stage 2
 
 FROM nginx:alpine
-COPY --node:12-alpine /app/dist/primeraInfancia /usr/share/nginx/html
+ARG FILES=/app/dist/primeraInfancia/*
+COPY ${FILES} /usr/share/nginx/html
 EXPOSE 80
+
