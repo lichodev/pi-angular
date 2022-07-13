@@ -1,5 +1,4 @@
-# stage 1
-
+#syntax=docker/dockerfile:1
 FROM node:12-alpine 
 WORKDIR /app
 COPY . .
@@ -8,6 +7,6 @@ RUN npm run build
 
 # stage 2
 FROM nginx:alpine
-COPY //root/primera-infancia/dist/primeraInfancia /usr/share/nginx/html
+COPY --from=0 /app/dist/primeraInfancia /usr/share/nginx/html
 EXPOSE 80
 
