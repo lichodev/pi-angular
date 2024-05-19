@@ -2,8 +2,10 @@ export const environment = {
   production: true,
 };
 
-// @ts-ignore
-export const BASE_URL = window['env']['apiUrl'];
+// export const BASE_URL = window['env']['apiUrl'];
+export const BASE_URL =
+  // @ts-ignore
+  typeof window['env'] === 'undefined' ? '' : window['env']['apiUrl'];
 
 /* -- ERRORS -- */
 export const SAVE_ERROR: String =
